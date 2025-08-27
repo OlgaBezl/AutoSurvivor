@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c853a2819fbd5474a894a85c62e9969b, type: 3}
+  m_Name: ShotSmall
+  m_EditorClassIdentifier: 
+  <Sprite>k__BackingField: {fileID: 1106526967, guid: af7f373d1b4dde147bae44e81b76769a, type: 3}
+  <Name>k__BackingField: ShotSmall
+  <AttackValue>k__BackingField: 5
