@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8277819854842342318}
   - component: {fileID: 3776877241006501847}
   - component: {fileID: 8155698472394807772}
-  - component: {fileID: 2560424291147115106}
   - component: {fileID: 8412940030367389063}
+  - component: {fileID: 3985943669293985980}
   m_Layer: 0
   m_Name: sircleSplash
   m_TagString: Untagged
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -2132716091, guid: 75990d6f3270a804f86784aa6ccb0ef0, type: 3}
   m_Color: {r: 0.2028302, g: 1, b: 0.9197441, a: 1}
   m_FlipX: 0
@@ -112,19 +112,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2560424291147115106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2884784500853836598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e9d86532a58318478030f7ac0806856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <LevelUpItem>k__BackingField: {fileID: 11400000, guid: f4aea6c556ac5f74d9bbcb441390da8e, type: 2}
 --- !u!58 &8412940030367389063
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,3 +148,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1.5
+--- !u!114 &3985943669293985980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884784500853836598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4298cac7970276b4fb552aba2414ae4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0.5

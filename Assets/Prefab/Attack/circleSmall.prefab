@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3949479978583589839}
   - component: {fileID: 5436911289418492599}
   m_Layer: 0
-  m_Name: circle_atlas_3
+  m_Name: circleSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 605409167, guid: 8cdf50bf67c26de419bb19a026c69581, type: 3}
   m_Color: {r: 1, g: 0.6323692, b: 0, a: 1}
   m_FlipX: 0

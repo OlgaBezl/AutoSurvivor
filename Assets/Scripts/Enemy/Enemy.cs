@@ -54,7 +54,9 @@ public class Enemy : MonoBehaviour
     {
         isOn = false;
         _health.Death -= Death;
-        Destroy(gameObject);
+
+        //анимаци€ уменьшени€, красный цвет, вернуть в пул
+        gameObject.SetActive(false);
     }
 
     private void Stop()

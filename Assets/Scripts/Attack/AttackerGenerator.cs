@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class AttackerGenerator : MonoBehaviour
 {
-    [SerializeField] private Attaker[] _attackerPrefabs;
+    [SerializeField] private BaseAttacker[] _attackerPrefabs;
 
-    public Attaker GetAttacker(LevelUpItem levelUpItem)
+    public BaseAttacker GetAttacker(LevelUpItem levelUpItem)
     {
         return _attackerPrefabs.FirstOrDefault(attacker => attacker.LevelUpItem == levelUpItem);
     }

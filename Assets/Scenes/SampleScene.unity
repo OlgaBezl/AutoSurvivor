@@ -655,6 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 713407734}
   - component: {fileID: 713407735}
+  - component: {fileID: 713407736}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -695,12 +696,25 @@ MonoBehaviour:
   - {fileID: 4992498641069110839, guid: 9a4fde51e128eab4183f360269f9eb83, type: 3}
   - {fileID: 7040954745323251734, guid: e5f05c23c1a96844f9413d10a72d0a3a, type: 3}
   _hero: {fileID: 2124663278}
+  _enemyPool: {fileID: 713407736}
   _spawnPoints:
   - {fileID: 2028319507}
   - {fileID: 1897705623}
   - {fileID: 1586357061}
   - {fileID: 1117178806}
   _interval: 200
+--- !u!114 &713407736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713407733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0ba6c64a3b9294f8a45eaeaa5e7720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &743206146
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +726,7 @@ GameObject:
   - component: {fileID: 743206147}
   - component: {fileID: 743206148}
   m_Layer: 0
-  m_Name: AttackerGenerator
+  m_Name: AttackerList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -748,8 +762,8 @@ MonoBehaviour:
   _attackerPrefabs:
   - {fileID: 3949479978583589839, guid: 5d4c8aab8178ecd48b24a9a7f1ac253a, type: 3}
   - {fileID: -2599374653500078856, guid: c906c583175f859418f38df43bec4ece, type: 3}
-  - {fileID: 2560424291147115106, guid: 2f8246a8606113d4c8cb1c6ba2bc2b9d, type: 3}
-  - {fileID: 1201603193738438177, guid: a6b101db3358dfb44b7bcacac642fdb9, type: 3}
+  - {fileID: 2754292881533880399, guid: 41519413eb7f3b349a0bc688643f5f65, type: 3}
+  - {fileID: 2754292881533880399, guid: d3e0c1f9abfaf7c4386a204ad6899266, type: 3}
 --- !u!1 &780654523
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &815817828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -957,9 +971,9 @@ RectTransform:
   - {fileID: 1231508134}
   m_Father: {fileID: 1467311202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 242.375, y: -100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &815817829
@@ -1817,7 +1831,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1115945331, guid: 1a728f33493c2bc4b8c28202bf9ea23f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3017,6 +3031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackerGenerator: {fileID: 743206148}
+  _enemyPool: {fileID: 713407736}
 --- !u!4 &2124663279
 Transform:
   m_ObjectHideFlags: 0
@@ -3065,7 +3080,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2126774990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3082,9 +3097,9 @@ RectTransform:
   - {fileID: 887101327}
   m_Father: {fileID: 1467311202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 324, y: -100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126774991

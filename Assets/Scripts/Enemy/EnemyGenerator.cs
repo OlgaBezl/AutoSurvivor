@@ -4,6 +4,7 @@ public class EnemyGenerator : MonoBehaviour
 {
     [SerializeField] private Enemy[] _enemyPrefabs;
     [SerializeField] private Hero _hero;
+    [SerializeField] private EnemyPool _enemyPool;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private int _interval = 100;
 
@@ -31,6 +32,7 @@ public class EnemyGenerator : MonoBehaviour
             _counter = 0;
             Enemy enemy = Instantiate(_enemyPrefabs[enemyIndex], _spawnPoints[spawnPointIndex].position, _spawnPoints[spawnPointIndex].rotation, transform);
             enemy.Initialize(_hero);
+            _enemyPool.Add(enemy);
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hero : MonoBehaviour
 {
     [SerializeField] private AttackerGenerator _attackerGenerator;
+    [SerializeField] private EnemyPool _enemyPool;
 
     public event Action HeroDeath;
 
@@ -15,7 +16,8 @@ public class Hero : MonoBehaviour
         _health = GetComponent<Health>();
         _health.Death += Death;
 
-        Instantiate(_attackerGenerator.GetAttacker(levelUpItem), transform.position, Quaternion.identity, transform);
+        BaseAttacker baseAttacker = Instantiate(_attackerGenerator.GetAttacker(levelUpItem), transform.position, Quaternion.identity, transform);
+        baseAttacker.Initialize(_enemyPool);
         gameObject.SetActive(true);
     }
 

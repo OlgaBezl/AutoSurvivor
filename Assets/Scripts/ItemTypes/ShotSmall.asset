@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Sprite>k__BackingField: {fileID: 1106526967, guid: af7f373d1b4dde147bae44e81b76769a, type: 3}
   <Name>k__BackingField: ShotSmall
-  <AttackValue>k__BackingField: 5
+  <AttackValue>k__BackingField: 100
