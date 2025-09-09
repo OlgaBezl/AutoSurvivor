@@ -2,29 +2,27 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float _speed = 0.5f;
-
     private Vector3 _direction;
-    private LevelUpItem _levelUpItem;
+    private BaseAttackItem _attackItem;
 
     private void Update()
     {
-        transform.position += _direction * _speed * Time.deltaTime;
+        transform.position += _direction * _attackItem.Speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.TryGetComponent(out Enemy enemy))
         {
-            enemy.Damage(_levelUpItem.AttackValue);
+            enemy.Damage(_attackItem.Attack);
             Destroy(gameObject);
         }
     }
 
-    public void Initialize(Vector3 direction, LevelUpItem levelUpItem)
+    public void Initialize(Vector3 direction, BaseAttackItem item)
     {
         _direction = direction.normalized;
-        _levelUpItem = levelUpItem;
+        _attackItem = item;
     }
 
 }

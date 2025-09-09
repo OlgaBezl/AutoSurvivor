@@ -5,8 +5,16 @@ public class AttackerGenerator : MonoBehaviour
 {
     [SerializeField] private BaseAttacker[] _attackerPrefabs;
 
-    public BaseAttacker GetAttacker(LevelUpItem levelUpItem)
+    //[SerializeField] private AttackItem[] _attackerPrefabs;
+    //[SerializeField] private PassiveItem[] _passivePrefabs;
+
+    public BaseAttacker[] GetAll()
     {
-        return _attackerPrefabs.FirstOrDefault(attacker => attacker.LevelUpItem == levelUpItem);
+        return _attackerPrefabs;
+    }
+
+    public BaseAttacker GetAttacker(LevelUpItem item)
+    {
+        return _attackerPrefabs.FirstOrDefault(attacker => attacker.AttackItem.Equals(item));
     }
 }

@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: bd3679ac59ffa8d4092468f770d3b9c9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7378660454788671033
+    second: needles_0
+  - first:
+      213: 6960139763575895606
+    second: needles_1
+  - first:
+      213: -7559035439335155642
+    second: needles_2
+  - first:
+      213: -8714407738383821961
+    second: needles_3
+  - first:
+      213: 925049864432173622
+    second: needles_4
+  - first:
+      213: 682958187555874533
+    second: needles_5
+  - first:
+      213: -3301529000915861018
+    second: needles_6
+  - first:
+      213: 7753663975785337761
+    second: needles_7
+  - first:
+      213: 1485206510109582185
+    second: needles_8
+  - first:
+      213: -5766355588473367179
+    second: needles_9
+  - first:
+      213: 7968673093180638784
+    second: needles_10
+  - first:
+      213: 4774900842852351442
+    second: needles_11
+  - first:
+      213: -2182524519555105543
+    second: needles_12
+  - first:
+      213: -6722586129705960495
+    second: needles_13
+  - first:
+      213: 3568305967541866403
+    second: needles_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 3
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: needles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5689
+        width: 2844
+        height: 2844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936a6edf694466660800000000000000
+      internalID: 7378660454788671033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: needles_1
+      rect:
+        serializedVersion: 2
+        x: 2844
+        y: 5689
+        width: 2844
+        height: 2844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63633031d32679060800000000000000
+      internalID: 6960139763575895606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: needles_2
+      rect:
+        serializedVersion: 2
+        x: 5688
+        y: 5689
+        width: 2844
+        height: 2844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 648d6d14159e81790800000000000000
+      internalID: -7559035439335155642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: needles_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2845
+        width: 2844
+        height: 2844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77397b53554301780800000000000000
+      internalID: -8714407738383821961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: needles_4
+      rect:
+        serializedVersion: 2
+        x: 2844
+        y: 2845
+        width: 2844
+        height: 2844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 632c00953ff66dc00800000000000000
+      internalID: 925049864432173622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: needles_5
+      rect:
+        serializedVersion: 2
+        x: 5688
+        y: 2845
+        width: 2844
+        height: 2844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e666b56ada5a7900800000000000000
+      internalID: 682958187555874533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: needles_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 2844
+        height: 2844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e182ccaddc9e22d0800000000000000
+      internalID: -3301529000915861018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: needles_7
+      rect:
+        serializedVersion: 2
+        x: 2844
+        y: 1
+        width: 2844
+        height: 2844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a39d682e4c8a9b60800000000000000
+      internalID: 7753663975785337761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: needles_8
+      rect:
+        serializedVersion: 2
+        x: 5688
+        y: 1
+        width: 2844
+        height: 2844
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 963ed25b3738c9410800000000000000
+      internalID: 1485206510109582185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 7ee17812b35f10449a3424e8cb3d5f31
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      needles_0: 7378660454788671033
+      needles_1: 6960139763575895606
+      needles_2: -7559035439335155642
+      needles_3: -8714407738383821961
+      needles_4: 925049864432173622
+      needles_5: 682958187555874533
+      needles_6: -3301529000915861018
+      needles_7: 7753663975785337761
+      needles_8: 1485206510109582185
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

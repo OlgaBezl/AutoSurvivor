@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f06806f48c0c1f547b37ffcfefc8be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LevelUpItem>k__BackingField: {fileID: 11400000, guid: 1433ec647a3e3404e83447467285fc5c, type: 2}
+  <AttackItem>k__BackingField: {fileID: 11400000, guid: 720080e72e6e7fb4abb1773566630f44, type: 2}
   _projectile: {fileID: 8823512003094980029, guid: a6b101db3358dfb44b7bcacac642fdb9, type: 3}
-  _spawnInterval: 150
+  _circleAttacker: {fileID: 0}

@@ -16,9 +16,12 @@ public class Hero : MonoBehaviour
         _health = GetComponent<Health>();
         _health.Death += Death;
 
-        BaseAttacker baseAttacker = Instantiate(_attackerGenerator.GetAttacker(levelUpItem), transform.position, Quaternion.identity, transform);
-        baseAttacker.Initialize(_enemyPool);
-        gameObject.SetActive(true);
+        if (levelUpItem.IsAttack)
+        {
+            BaseAttacker baseAttacker = Instantiate(_attackerGenerator.GetAttacker(levelUpItem), transform.position, Quaternion.identity, transform);
+            baseAttacker.Initialize(_enemyPool);
+            gameObject.SetActive(true);
+        }
     }
 
     public void Damage(float value)
