@@ -4,7 +4,7 @@ public class GameRoot : MonoBehaviour
 {
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private Hero _hero;
-    [SerializeField] private GameObject _levelUpPanel;
+    [SerializeField] private LevelUpPanel _levelUpPanel;
 
     private void OnValidate()
     {
@@ -20,7 +20,7 @@ public class GameRoot : MonoBehaviour
 
     public void StartLevel(LevelUpItem levelUpItem)
     {
-        _levelUpPanel.gameObject.SetActive(false);
+        _levelUpPanel.Hide();
         _enemySpawner.Initialize();
         _hero.Initialize(levelUpItem);
     }

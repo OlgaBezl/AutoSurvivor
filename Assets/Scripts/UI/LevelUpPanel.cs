@@ -6,6 +6,7 @@ public class LevelUpPanel : MonoBehaviour
     [SerializeField] private LevelUpMenu _levelUpMenu;
     [SerializeField] private AttackSpawner _attackSpawner;
     [SerializeField] private int _itemsCount;
+    [SerializeField] private Transform _container;
 
     private void OnValidate()
     {
@@ -24,10 +25,22 @@ public class LevelUpPanel : MonoBehaviour
 
     private void Start()
     {
-        foreach(BaseAttacker attacker in _attackSpawner.GetAll())
+        Show();
+    }
+
+    public void Show()
+    {
+        foreach (BaseAttacker attacker in _attackSpawner.GetAll())
         {
-            LevelUpMenu menuItem = Instantiate(_levelUpMenu, transform);
+            LevelUpMenu menuItem = Instantiate(_levelUpMenu, _container);
             menuItem.Initialize(_gameRoot, attacker.AttackItem);
         }
+
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }
