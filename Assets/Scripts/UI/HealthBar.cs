@@ -7,6 +7,14 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Health _health;
     [SerializeField] private Slider _slider;
 
+    private void OnValidate()
+    {
+        if (_health == null)
+            throw new System.ArgumentNullException(nameof(_health));
+
+        if (_slider == null)
+            throw new System.ArgumentNullException(nameof(_slider));
+    }
 
     private void Awake()
     {

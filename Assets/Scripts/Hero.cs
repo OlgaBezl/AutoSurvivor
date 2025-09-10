@@ -4,12 +4,21 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Hero : MonoBehaviour
 {
-    [SerializeField] private AttackerGenerator _attackerGenerator;
+    [SerializeField] private AttackSpawner _attackSpawner;
     [SerializeField] private EnemyPool _enemyPool;
 
     public event Action HeroDeath;
 
     private Health _health;
+
+    private void Awake()
+    {
+        if (_attackSpawner == null)
+            throw new ArgumentNullException(nameof(_attackSpawner));
+
+        if (_enemyPool == null)
+            throw new ArgumentNullException(nameof(_enemyPool));
+    }
 
     public void Initialize(LevelUpItem levelUpItem)
     {
@@ -18,7 +27,7 @@ public class Hero : MonoBehaviour
 
         if (levelUpItem.IsAttack)
         {
-            BaseAttacker baseAttacker = Instantiate(_attackerGenerator.GetAttacker(levelUpItem), transform.position, Quaternion.identity, transform);
+            BaseAttacker baseAttacker = Instantiate(_attackSpawner.GetAttacker(levelUpItem), transform.position, Quaternion.identity, transform);
             baseAttacker.Initialize(_enemyPool);
             gameObject.SetActive(true);
         }

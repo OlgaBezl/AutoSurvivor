@@ -10,6 +10,12 @@ public class Health : MonoBehaviour
 
     private float _currentValue;
 
+    private void OnValidate()
+    {
+        if (MaxValue <= 0)
+            throw new ArgumentOutOfRangeException(nameof(MaxValue));
+    }
+
     private void Awake()
     {
         _currentValue = MaxValue;

@@ -15,7 +15,10 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: -2978653956524333172, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
   <Name>k__BackingField: CircleWave
   <IsAttack>k__BackingField: 1
+  <Type>k__BackingField: 0
   <Attack>k__BackingField: 5
   <Speed>k__BackingField: 20
+  <Radius>k__BackingField: 20
+  <SpawnInterval>k__BackingField: 20
   <SuperVersion>k__BackingField: {fileID: 11400000, guid: cc8dac56b81fb8e44b470990f40ff61f, type: 2}
   <TupleItem>k__BackingField: {fileID: 11400000, guid: becb40216581d5b4e83ffe834bc03d9f, type: 2}

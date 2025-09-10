@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class HealthSprite : MonoBehaviour
@@ -12,13 +11,19 @@ public class HealthSprite : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private int _damageCounter;
 
+    private void OnValidate()
+    {
+        if (_health == null)
+            throw new ArgumentNullException(nameof(_health));
+    }
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _health.ChangeValue += Damage;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _damageCounter--;
 

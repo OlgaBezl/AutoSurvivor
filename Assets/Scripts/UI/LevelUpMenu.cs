@@ -10,6 +10,15 @@ public class LevelUpMenu : MonoBehaviour
     private GameRoot _gameRoot;
     private LevelUpItem _levelUpItem;
 
+    private void OnValidate()
+    {
+        if (_image == null)
+            throw new System.ArgumentNullException(nameof(_image));
+
+        if (_text == null)
+            throw new System.ArgumentNullException(nameof(_text));
+    }
+
     public void Initialize(GameRoot gameRoot, LevelUpItem levelUpItem)
     {
         _gameRoot = gameRoot;

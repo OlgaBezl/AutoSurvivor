@@ -1,14 +1,14 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
+    //создать scriptableObject для описания
     [SerializeField] private float _speed = 0.5f;
+
     private Health _health;
     private Vector3 _target;
     private Hero _hero;
-
     private bool _isMove = false;
     private bool isOn = true;
 
@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         isOn = true;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(_isMove)
         {

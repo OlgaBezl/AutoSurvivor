@@ -2,14 +2,26 @@ using UnityEngine;
 
 public class GameRoot : MonoBehaviour
 {
-    [SerializeField] private EnemyGenerator _enemyGenerator;
+    [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private Hero _hero;
     [SerializeField] private GameObject _levelUpPanel;
+
+    private void OnValidate()
+    {
+        if(_enemySpawner == null)
+            throw new System.ArgumentNullException(nameof(_enemySpawner));
+
+        if (_hero == null)
+            throw new System.ArgumentNullException(nameof(_hero));
+
+        if (_levelUpPanel == null)
+            throw new System.ArgumentNullException(nameof(_levelUpPanel));
+    }
 
     public void StartLevel(LevelUpItem levelUpItem)
     {
         _levelUpPanel.gameObject.SetActive(false);
-        _enemyGenerator.Initialize();
+        _enemySpawner.Initialize();
         _hero.Initialize(levelUpItem);
     }
 }
