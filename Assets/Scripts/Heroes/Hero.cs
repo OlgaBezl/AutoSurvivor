@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Health))]
 public class Hero : MonoBehaviour
 {
+    [field: SerializeField] public HeroItem HeroItem { get; private set; }
+
     [SerializeField] private AttackSpawner _attackSpawner;
     [SerializeField] private EnemyPool _enemyPool;
 
@@ -13,6 +15,9 @@ public class Hero : MonoBehaviour
 
     private void Awake()
     {
+        if (HeroItem == null)
+            throw new ArgumentNullException(nameof(HeroItem));
+
         if (_attackSpawner == null)
             throw new ArgumentNullException(nameof(_attackSpawner));
 

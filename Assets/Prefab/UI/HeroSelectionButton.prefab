@@ -221,10 +221,10 @@ GameObject:
   - component: {fileID: 8440390434626458434}
   - component: {fileID: 218833643172064583}
   - component: {fileID: 6505906404725229500}
-  - component: {fileID: 1817978297144313863}
-  - component: {fileID: -6039595063296199409}
+  - component: {fileID: 4751621094530768074}
+  - component: {fileID: 5816562388014375132}
   m_Layer: 5
-  m_Name: LevelUpMenuItem
+  m_Name: HeroSelectionButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -333,8 +333,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1817978297144313863}
-        m_TargetAssemblyTypeName: LevelUpMenu, Assembly-CSharp
+      - m_Target: {fileID: 4751621094530768074}
+        m_TargetAssemblyTypeName: HeroSelectionButton, Assembly-CSharp
         m_MethodName: SelectItem
         m_Mode: 1
         m_Arguments:
@@ -345,7 +345,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1817978297144313863
+--- !u!114 &4751621094530768074
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,12 +354,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8456783263488499281}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 258dc746d1a9e4048abbe34af1924067, type: 3}
+  m_Script: {fileID: 11500000, guid: 825ca82eebe862e428c72303b1a6919d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 8562138837362934810}
   _text: {fileID: 380628825679334436}
---- !u!114 &-6039595063296199409
+--- !u!114 &5816562388014375132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

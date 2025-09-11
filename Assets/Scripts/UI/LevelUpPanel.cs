@@ -3,7 +3,7 @@ using UnityEngine;
 public class LevelUpPanel : MonoBehaviour
 {
     [SerializeField] private GameRoot _gameRoot;
-    [SerializeField] private LevelUpMenu _levelUpMenu;
+    [SerializeField] private LevelUpButton _levelUpMenu;
     [SerializeField] private AttackSpawner _attackSpawner;
     [SerializeField] private int _itemsCount;
     [SerializeField] private Transform _container;
@@ -32,7 +32,7 @@ public class LevelUpPanel : MonoBehaviour
     {
         foreach (BaseAttacker attacker in _attackSpawner.GetAll())
         {
-            LevelUpMenu menuItem = Instantiate(_levelUpMenu, _container);
+            LevelUpButton menuItem = Instantiate(_levelUpMenu, _container);
             menuItem.Initialize(_gameRoot, attacker.AttackItem);
         }
 

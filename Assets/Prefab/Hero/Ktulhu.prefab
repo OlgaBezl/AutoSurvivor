@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881328e0d9a411541bdfafd72369e0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <HeroItem>k__BackingField: {fileID: 11400000, guid: cc98bd83373a53f458ddaa09118208b3, type: 2}
   _attackSpawner: {fileID: 0}
   _enemyPool: {fileID: 0}
 --- !u!58 &3017363428002909859
