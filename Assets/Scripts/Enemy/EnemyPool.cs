@@ -11,6 +11,23 @@ public class EnemyPool : MonoBehaviour
         _enemies = new List<Enemy>();
     }
 
+    public Enemy GetEnemy(Enemy prefab, Transform spawnPoint)
+    {
+        Enemy inactiveEnemy = _enemies.FirstOrDefault(enemy => !enemy.gameObject.activeSelf && enemy.EnemyItem.Equals(prefab.EnemyItem));
+
+        if (inactiveEnemy == null)
+        {
+            return Instantiate(prefab, spawnPoint.position, spawnPoint.rotation, transform);
+        }
+        else
+        {
+            inactiveEnemy.transform.position = spawnPoint.position;
+            inactiveEnemy.transform.rotation = spawnPoint.rotation;
+            inactiveEnemy.gameObject.SetActive(true);
+            return inactiveEnemy;
+        }
+    }
+
     public void Add(Enemy enemy)
     {
         _enemies.Add(enemy);

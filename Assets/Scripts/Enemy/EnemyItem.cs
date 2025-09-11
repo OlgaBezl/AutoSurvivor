@@ -2,19 +2,21 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HeroItem", menuName = "Scriptable Objects/HeroItem")]
-public class HeroItem : ScriptableObject, IEqualityComparer
+[CreateAssetMenu(fileName = "EnemyItem", menuName = "Scriptable Objects/EnemyItem")]
+public class EnemyItem : ScriptableObject, IEqualityComparer
 {
-    [field: SerializeField] public Sprite Sprite { get; private set; }
-    [field: SerializeField] public float Health { get; private set; }
     [field: SerializeField] public string Name { get; private set; }
-    [field: SerializeField] public string Description { get; private set; }
+    [field: SerializeField] public int Points { get; private set; }
+    [field: SerializeField] public float Damage { get; private set; }
+    [field: SerializeField] public float Health { get; private set; }
+    [field: SerializeField] public float Speed { get; private set; }
+
 
     private string _uid;
 
     public override bool Equals(object obj)
     {
-        if (obj is HeroItem item)
+        if (obj is EnemyItem item)
             return _uid == item._uid;
         else
             return false;
@@ -22,7 +24,7 @@ public class HeroItem : ScriptableObject, IEqualityComparer
 
     public new bool Equals(object x, object y)
     {
-        if (x is HeroItem xItem && y is HeroItem yItem)
+        if (x is EnemyItem xItem && y is EnemyItem yItem)
             return xItem._uid == yItem._uid;
         else
             return false;

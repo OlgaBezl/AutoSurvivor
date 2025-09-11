@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
 public class Enemy : MonoBehaviour
 {
-    //создать scriptableObject для описания
-    [SerializeField] private float _speed = 0.5f;
+    [field: SerializeField] public EnemyItem EnemyItem { get; private set; }
+
+    public event Action<Enemy> Deathed;
 
     private Health _health;
     private Vector3 _target;
@@ -20,7 +22,8 @@ public class Enemy : MonoBehaviour
         _hero.HeroDeath += Stop;
 
         _health = GetComponent<Health>();
-        _health.Death += Death;
+        _health.Initialize(EnemyItem.Health);
+        _health.Deathed += Death;
 
         _isMove = true;
         isOn = true;
@@ -30,7 +33,7 @@ public class Enemy : MonoBehaviour
     {
         if(_isMove)
         {
-            transform.position += (_target - transform.position).normalized * _speed * Time.deltaTime;
+            transform.position += (_target - transform.position).normalized * EnemyItem.Speed * Time.deltaTime;
         }
     }
 
@@ -53,9 +56,9 @@ public class Enemy : MonoBehaviour
     private void Death()
     {
         isOn = false;
-        _health.Death -= Death;
-
-        //анимация уменьшения, красный цвет, вернуть в пул
+        _health.Deathed -= Death;
+        Deathed?.Invoke(this);
+        //анимация уменьшения, красный цвет, вернуть в пул, опыт
         gameObject.SetActive(false);
     }
 

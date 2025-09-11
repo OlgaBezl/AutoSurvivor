@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0593eb5faa92ab64995e459bc7bc2e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  <EnemyItem>k__BackingField: {fileID: 11400000, guid: a4060bfac89e55948a7ecb1bf2efbb59, type: 2}
 --- !u!58 &7644249098280983725
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private EnemyPool _enemyPool;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private int _interval = 100;
+    [SerializeField] private Progress _progress;
 
     private int _counter = 0;
 
@@ -27,6 +28,9 @@ public class EnemySpawner : MonoBehaviour
 
         if (_interval <= 0)
             throw new System.ArgumentOutOfRangeException(nameof(_interval));
+
+        if (_progress == null)
+            throw new System.ArgumentNullException(nameof(_progress));
     }
 
     public void Initialize()
@@ -45,13 +49,21 @@ public class EnemySpawner : MonoBehaviour
 
         if(_counter == _interval)
         {
-            int spawnPointIndex = Random.Range(0, _spawnPoints.Length - 1);
-            int enemyIndex = Random.Range(0, _enemyPrefabs.Length - 1);
-
             _counter = 0;
-            Enemy enemy = Instantiate(_enemyPrefabs[enemyIndex], _spawnPoints[spawnPointIndex].position, _spawnPoints[spawnPointIndex].rotation, transform);
+            int spawnPointIndex = Random.Range(0, _spawnPoints.Length);
+            int enemyIndex = Random.Range(0, _enemyPrefabs.Length);
+
+            Enemy enemy = _enemyPool.GetEnemy(_enemyPrefabs[enemyIndex], _spawnPoints[spawnPointIndex]);
             enemy.Initialize(_hero);
+            enemy.Deathed += EnemyDied;
+
             _enemyPool.Add(enemy);
         }
+    }
+
+    private void EnemyDied(Enemy enemy)
+    {
+        enemy.Deathed -= EnemyDied;
+        _progress.Increase(enemy.EnemyItem.Points);
     }
 }

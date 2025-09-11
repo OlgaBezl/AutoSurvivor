@@ -28,7 +28,8 @@ public class Hero : MonoBehaviour
     public void Initialize(LevelUpItem levelUpItem)
     {
         _health = GetComponent<Health>();
-        _health.Death += Death;
+        _health.Initialize(HeroItem.Health);
+        _health.Deathed += Death;
 
         if (levelUpItem.IsAttack)
         {
@@ -45,7 +46,7 @@ public class Hero : MonoBehaviour
 
     private void Death()
     {
-        _health.Death -= Death;
+        _health.Deathed -= Death;
         HeroDeath?.Invoke();
 
         Destroy(gameObject);

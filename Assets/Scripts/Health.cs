@@ -3,22 +3,17 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [field: SerializeField] public float MaxValue { get; private set; } = 100f;
+    public float MaxValue { get; private set; }
 
-    public event Action Death;
+    public event Action Deathed;
     public event Action<float> ChangeValue;
 
     private float _currentValue;
 
-    private void OnValidate()
+    public void Initialize(float maxValue)
     {
-        if (MaxValue <= 0)
-            throw new ArgumentOutOfRangeException(nameof(MaxValue));
-    }
-
-    private void Awake()
-    {
-        _currentValue = MaxValue;
+        MaxValue = maxValue;
+        _currentValue = maxValue;
     }
 
     public void Damage(float value)
@@ -28,7 +23,7 @@ public class Health : MonoBehaviour
 
         if (_currentValue <= 0)
         {
-            Death?.Invoke();
+            Deathed?.Invoke();
         }
     }
 }
