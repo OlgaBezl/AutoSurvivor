@@ -4,21 +4,25 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Slider))]
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private Health _health;
+    [SerializeField] private BaseCharacter _character;
     [SerializeField] private Slider _slider;
+
+    private Health _health;
 
     private void OnValidate()
     {
-        if (_health == null)
-            throw new System.ArgumentNullException(nameof(_health));
+        if (_character == null)
+            throw new System.ArgumentNullException(nameof(_character));
 
         if (_slider == null)
             throw new System.ArgumentNullException(nameof(_slider));
     }
 
-    private void Awake()
+    private void Start()
     {
         _slider.value = 1;
+
+        _health = _character.Health;
         _health.ChangeValue += ChangeValue;
     }
 

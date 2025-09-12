@@ -1,14 +1,12 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
-public class Enemy : MonoBehaviour
+public class Enemy : BaseCharacter
 {
     [field: SerializeField] public EnemyItem EnemyItem { get; private set; }
 
     public event Action<Enemy> Deathed;
 
-    private Health _health;
     private Vector3 _target;
     private Hero _hero;
     private bool _isMove = false;
@@ -21,9 +19,8 @@ public class Enemy : MonoBehaviour
         _target = _hero.transform.position;
         _hero.HeroDeath += Stop;
 
-        _health = GetComponent<Health>();
-        _health.Initialize(EnemyItem.Health);
-        _health.Deathed += Death;
+        Health = new Health(EnemyItem.Health);
+        Health.Deathed += Death;
 
         _isMove = true;
         isOn = true;
@@ -49,14 +46,14 @@ public class Enemy : MonoBehaviour
     {
         if(isOn)
         {
-            _health?.Damage(value);
+            Health?.Damage(value);
         }
     }
 
     private void Death()
     {
         isOn = false;
-        _health.Deathed -= Death;
+        Health.Deathed -= Death;
         Deathed?.Invoke(this);
         //анимация уменьшения, красный цвет, вернуть в пул, опыт
         gameObject.SetActive(false);

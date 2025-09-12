@@ -1,25 +1,28 @@
 using System;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class HealthSprite : MonoBehaviour
 {
-    [SerializeField] private Health _health;
     [SerializeField] private Color _damageColor = Color.red;
 
     private Color _defaultColor = Color.white;
     private SpriteRenderer _spriteRenderer;
     private int _damageCounter;
+    private BaseCharacter _character;
+    private Health _health;
 
     private void OnValidate()
     {
-        if (_health == null)
-            throw new ArgumentNullException(nameof(_health));
     }
 
-    private void Awake()
+    private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _character = GetComponentInParent<BaseCharacter>();
+
+        _health = _character.Health;
         _health.ChangeValue += Damage;
     }
 

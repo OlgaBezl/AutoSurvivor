@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3443032440701260301}
   - component: {fileID: 7097471346150720027}
   - component: {fileID: 4992498641069110839}
-  - component: {fileID: 4341221168962270063}
   m_Layer: 0
   m_Name: medusa1
   m_TagString: Untagged
@@ -83,18 +82,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <EnemyItem>k__BackingField: {fileID: 11400000, guid: ef3f0b5d2fc99da4a9dec97ff9f31f7a, type: 2}
---- !u!114 &4341221168962270063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4292976095950989670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc894c908673c4e47b83790e3066c65b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8530434565264338258
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,5 +201,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c996b78216119664d9124719e7ca2aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 4341221168962270063}
   _damageColor: {r: 0.7647059, g: 0, b: 0, a: 1}

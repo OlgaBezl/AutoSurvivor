@@ -1,7 +1,6 @@
 using System;
-using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health
 {
     public float MaxValue { get; private set; }
 
@@ -10,7 +9,7 @@ public class Health : MonoBehaviour
 
     private float _currentValue;
 
-    public void Initialize(float maxValue)
+    public Health(float maxValue)
     {
         MaxValue = maxValue;
         _currentValue = maxValue;

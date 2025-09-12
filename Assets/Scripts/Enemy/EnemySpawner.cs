@@ -38,6 +38,11 @@ public class EnemySpawner : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void Pause()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void FixedUpdate()
     {
         if(_hero == null)

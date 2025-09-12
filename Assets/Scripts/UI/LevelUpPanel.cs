@@ -42,5 +42,10 @@ public class LevelUpPanel : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+
+        while (_container.childCount > 0)
+        {
+            DestroyImmediate(_container.GetChild(0).gameObject);
+        }
     }
 }

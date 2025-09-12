@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Health))]
-public class Hero : MonoBehaviour
+public class Hero : BaseCharacter
 {
     [field: SerializeField] public HeroItem HeroItem { get; private set; }
 
@@ -10,8 +9,6 @@ public class Hero : MonoBehaviour
     [SerializeField] private EnemyPool _enemyPool;
 
     public event Action HeroDeath;
-
-    private Health _health;
 
     private void Awake()
     {
@@ -23,14 +20,13 @@ public class Hero : MonoBehaviour
 
         if (_enemyPool == null)
             throw new ArgumentNullException(nameof(_enemyPool));
+
+        Health = new Health(HeroItem.Health);
+        Health.Deathed += Death;
     }
 
     public void Initialize(LevelUpItem levelUpItem)
     {
-        _health = GetComponent<Health>();
-        _health.Initialize(HeroItem.Health);
-        _health.Deathed += Death;
-
         if (levelUpItem.IsAttack)
         {
             BaseAttacker baseAttacker = Instantiate(_attackSpawner.GetAttacker(levelUpItem), transform.position, Quaternion.identity, transform);
@@ -39,14 +35,19 @@ public class Hero : MonoBehaviour
         }
     }
 
+    public void Pause()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void Damage(float value)
     {
-        _health.Damage(value);
+        Health.Damage(value);
     }
 
     private void Death()
     {
-        _health.Deathed -= Death;
+        Health.Deathed -= Death;
         HeroDeath?.Invoke();
 
         Destroy(gameObject);
