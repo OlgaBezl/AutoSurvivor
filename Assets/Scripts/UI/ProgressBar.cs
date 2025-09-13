@@ -22,7 +22,7 @@ public class ProgressBar : MonoBehaviour
 
     private void Awake()
     {
-        _slider.value = 1;
+        _slider.value = 0;
         _progress.ChangeValue += ChangeValue;
         _progress.LevelUpped += ChangeLevel;
     }

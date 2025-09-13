@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ktulhu
   m_EditorClassIdentifier: 
   <Sprite>k__BackingField: {fileID: -2248273014285675650, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
-  <Health>k__BackingField: 50
+  <Health>k__BackingField: 200
   <Name>k__BackingField: Ktulhu
   <Description>k__BackingField: Scary Cthulhu
