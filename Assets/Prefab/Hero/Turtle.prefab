@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881328e0d9a411541bdfafd72369e0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthSprite: {fileID: 7490218632520109545}
   <HeroItem>k__BackingField: {fileID: 11400000, guid: 5ee72b30365b4314488107f9d474f08b, type: 2}
   _attackSpawner: {fileID: 0}
   _enemyPool: {fileID: 0}

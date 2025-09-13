@@ -3,6 +3,7 @@ using System;
 public class Health
 {
     public float MaxValue { get; private set; }
+    public bool IsDead => _currentValue <= 0;
 
     public event Action Deathed;
     public event Action<float> ChangeValue;

@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0593eb5faa92ab64995e459bc7bc2e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthSprite: {fileID: 7081683266849828382}
   <EnemyItem>k__BackingField: {fileID: 11400000, guid: ef3f0b5d2fc99da4a9dec97ff9f31f7a, type: 2}
 --- !u!1 &8530434565264338258
 GameObject:

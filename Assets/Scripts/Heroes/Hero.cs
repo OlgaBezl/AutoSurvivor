@@ -7,6 +7,7 @@ public class Hero : BaseCharacter
 
     [SerializeField] private AttackSpawner _attackSpawner;
     [SerializeField] private EnemyPool _enemyPool;
+    [SerializeField] private HealthBar _healthBar;
 
     public event Action HeroDeath;
 
@@ -20,13 +21,16 @@ public class Hero : BaseCharacter
 
         if (_enemyPool == null)
             throw new ArgumentNullException(nameof(_enemyPool));
-
-        Health = new Health(HeroItem.Health);
-        Health.Deathed += Death;
     }
 
     public void Initialize(LevelUpItem levelUpItem)
     {
+        Health = new Health(HeroItem.Health);
+        Health.Deathed += Death;
+
+        Initialize();
+        _healthBar.Initialize(Health);
+
         if (levelUpItem.IsAttack)
         {
             BaseAttacker baseAttacker = Instantiate(_attackSpawner.GetAttacker(levelUpItem), transform.position, Quaternion.identity, transform);

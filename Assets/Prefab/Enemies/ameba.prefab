@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0593eb5faa92ab64995e459bc7bc2e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthSprite: {fileID: 565587856598129635}
   <EnemyItem>k__BackingField: {fileID: 11400000, guid: a50efbba1e8e0bc42ab1b7c10a8b6c88, type: 2}
 --- !u!58 &3565543892923064203
 CircleCollider2D:

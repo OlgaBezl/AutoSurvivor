@@ -20,7 +20,9 @@ public class Enemy : BaseCharacter
         _hero.HeroDeath += Stop;
 
         Health = new Health(EnemyItem.Health);
-        Health.Deathed += Death;
+        Health.Deathed += Unactive;
+
+        base.Initialize();
 
         _isMove = true;
         isOn = true;
@@ -50,13 +52,17 @@ public class Enemy : BaseCharacter
         }
     }
 
-    private void Death()
+    protected override void Death()
+    {
+        base.Death();
+        Deathed?.Invoke(this);
+    }
+
+    private void Unactive()
     {
         isOn = false;
-        Health.Deathed -= Death;
-        Deathed?.Invoke(this);
-        //анимация уменьшения, красный цвет, вернуть в пул, опыт
-        gameObject.SetActive(false);
+        _isMove = false;
+        Health.Deathed -= Unactive;
     }
 
     private void Stop()
