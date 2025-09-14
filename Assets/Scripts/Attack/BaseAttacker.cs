@@ -1,14 +1,20 @@
 using UnityEngine;
 
-public abstract class BaseAttacker: MonoBehaviour
+namespace Scripts.Attack
 {
-    [field: SerializeField] public BaseAttackItem AttackItem { get; set; }
-
-    private void OnValidate()
+    public class BaseAttacker : MonoBehaviour
     {
-        if (AttackItem == null)
-            throw new System.ArgumentNullException(nameof(AttackItem));
-    }
+        [field: SerializeField] public BaseAttackItem AttackItem { get; private set; }
 
-    public abstract void Initialize(EnemyPool enemyPool);
+        private void OnValidate()
+        {
+            if (AttackItem == null)
+                throw new System.ArgumentNullException(nameof(AttackItem));
+        }
+
+        public virtual void Initialize(Vector3 direction)
+        {
+            gameObject.SetActive(true);
+        }
+    }
 }

@@ -1,10 +1,11 @@
+using Scripts.Attack;
 using UnityEngine;
 
 public class LevelUpPanel : MonoBehaviour
 {
     [SerializeField] private GameRoot _gameRoot;
     [SerializeField] private LevelUpButton _levelUpMenu;
-    [SerializeField] private AttackSpawner _attackSpawner;
+    [SerializeField] private AttackDictionary _attackSpawner;
     [SerializeField] private int _itemsCount;
     [SerializeField] private Transform _container;
 
@@ -30,10 +31,10 @@ public class LevelUpPanel : MonoBehaviour
 
     public void Show()
     {
-        foreach (BaseAttacker attacker in _attackSpawner.GetAll())
+        foreach (BaseAttackItem item in _attackSpawner.GetAll())
         {
             LevelUpButton menuItem = Instantiate(_levelUpMenu, _container);
-            menuItem.Initialize(_gameRoot, attacker.AttackItem);
+            menuItem.Initialize(_gameRoot, item);
         }
 
         gameObject.SetActive(true);

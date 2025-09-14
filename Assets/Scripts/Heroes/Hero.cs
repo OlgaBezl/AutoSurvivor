@@ -1,13 +1,15 @@
 using System;
+using Scripts.Attack;
 using UnityEngine;
 
 public class Hero : BaseCharacter
 {
     [field: SerializeField] public HeroItem HeroItem { get; private set; }
 
-    [SerializeField] private AttackSpawner _attackSpawner;
+    [SerializeField] private AttackDictionary _attackDictionary;
     [SerializeField] private EnemyPool _enemyPool;
     [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private AttackSpawner _spawner;
 
     public event Action HeroDeath;
 
@@ -16,8 +18,8 @@ public class Hero : BaseCharacter
         if (HeroItem == null)
             throw new ArgumentNullException(nameof(HeroItem));
 
-        if (_attackSpawner == null)
-            throw new ArgumentNullException(nameof(_attackSpawner));
+        if (_attackDictionary == null)
+            throw new ArgumentNullException(nameof(_attackDictionary));
 
         if (_enemyPool == null)
             throw new ArgumentNullException(nameof(_enemyPool));
@@ -25,16 +27,14 @@ public class Hero : BaseCharacter
 
     public void Initialize(LevelUpItem levelUpItem)
     {
-        Health = new Health(HeroItem.Health);
-        Health.Deathed += Death;
+        Initialize(HeroItem.Health);
 
-        Initialize();
         _healthBar.Initialize(Health);
 
         if (levelUpItem.IsAttack)
         {
-            BaseAttacker baseAttacker = Instantiate(_attackSpawner.GetAttacker(levelUpItem), transform.position, Quaternion.identity, transform);
-            baseAttacker.Initialize(_enemyPool);
+            AttackSpawner spawner = Instantiate(_spawner, transform.position, Quaternion.identity, transform);
+            spawner.Initialize(_enemyPool, _attackDictionary.GetByItem(levelUpItem));
             gameObject.SetActive(true);
         }
     }
@@ -49,11 +49,9 @@ public class Hero : BaseCharacter
         Health.Damage(value);
     }
 
-    private void Death()
+    protected override void Death()
     {
-        Health.Deathed -= Death;
+        base.Death();
         HeroDeath?.Invoke();
-
-        Destroy(gameObject);
     }
 }

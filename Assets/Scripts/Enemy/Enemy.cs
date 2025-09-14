@@ -8,21 +8,18 @@ public class Enemy : BaseCharacter
     public event Action<Enemy> Deathed;
 
     private Vector3 _target;
-    private Hero _hero;
+    private Transform _hero;
     private bool _isMove = false;
     private bool isOn = true;
 
-    public void Initialize(Hero hero)
+    public void Initialize(Transform hero)
     {
         _hero = hero;
 
         _target = _hero.transform.position;
-        _hero.HeroDeath += Stop;
 
-        Health = new Health(EnemyItem.Health);
+        base.Initialize(EnemyItem.Health);
         Health.Deathed += Unactive;
-
-        base.Initialize();
 
         _isMove = true;
         isOn = true;
@@ -32,7 +29,7 @@ public class Enemy : BaseCharacter
     {
         if(_isMove)
         {
-            transform.position += (_target - transform.position).normalized * EnemyItem.Speed * Time.deltaTime;
+            transform.position += (_target - transform.position).normalized * EnemyItem.Speed * Time.fixedDeltaTime;
         }
     }
 
@@ -52,6 +49,11 @@ public class Enemy : BaseCharacter
         }
     }
 
+    public void Stop()
+    {
+        _isMove = false;
+    }
+
     protected override void Death()
     {
         base.Death();
@@ -63,11 +65,5 @@ public class Enemy : BaseCharacter
         isOn = false;
         _isMove = false;
         Health.Deathed -= Unactive;
-    }
-
-    private void Stop()
-    {
-        _isMove = false;
-        _hero.HeroDeath -= Stop;
     }
 }

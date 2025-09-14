@@ -1,17 +1,16 @@
 using UnityEngine;
 
-[RequireComponent (typeof(Collider2D))]
-public class StaticAttacker : BaseAttacker
+namespace Scripts.Attack
 {
-    public override void Initialize(EnemyPool enemyPool)
+    [RequireComponent(typeof(Collider2D))]
+    public class StaticAttacker : BaseAttacker
     {
-    }
-
-    private void OnTriggerStay2D(Collider2D collider)
-    {
-        if (collider.gameObject.TryGetComponent(out Enemy enemy))
+        private void OnTriggerStay2D(Collider2D collider)
         {
-            enemy.Damage(AttackItem.Attack);
+            if (collider.gameObject.TryGetComponent(out Enemy enemy))
+            {
+                enemy.Damage(AttackItem.Attack);
+            }
         }
     }
 }

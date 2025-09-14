@@ -5,7 +5,7 @@ public class BaseCharacter : MonoBehaviour
 {
     [SerializeField] private HealthSprite _healthSprite;
 
-    public Health Health { get; protected set; }
+    public Health Health { get; private set; }
 
     private void OnValidate()
     {
@@ -13,8 +13,9 @@ public class BaseCharacter : MonoBehaviour
             throw new ArgumentNullException(nameof(_healthSprite));
     }
 
-    public void Initialize()
+    public void Initialize(float maxHealth)
     {
+        Health = new Health(maxHealth);
         _healthSprite.Initialize(Health);
         _healthSprite.DeathAnimationFinished += Death;
     }

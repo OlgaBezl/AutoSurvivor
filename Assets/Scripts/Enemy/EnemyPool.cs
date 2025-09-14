@@ -33,6 +33,11 @@ public class EnemyPool : MonoBehaviour
         _enemies.Add(enemy);
     }
 
+    public void StopAll()
+    {
+        _enemies.ForEach(enemy => enemy.Stop());
+    }
+
     public Enemy GetNearest(Vector3 position)
     {
         float minDistance = float.MaxValue;

@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Progress _progress;
 
     private int _counter = 0;
+    private bool _isActive = false;
 
     private void OnValidate()
     {
@@ -35,7 +36,9 @@ public class EnemySpawner : MonoBehaviour
 
     public void Initialize()
     {
+        _hero.HeroDeath += Stop;
         gameObject.SetActive(true);
+        _isActive = true;
     }
 
     public void Pause()
@@ -45,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_hero == null)
+        if(_hero == null || !_isActive)
         {
             return;
         }
@@ -59,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
             int enemyIndex = Random.Range(0, _enemyPrefabs.Length);
 
             Enemy enemy = _enemyPool.GetEnemy(_enemyPrefabs[enemyIndex], _spawnPoints[spawnPointIndex]);
-            enemy.Initialize(_hero);
+            enemy.Initialize(_hero.transform);
             enemy.Deathed += EnemyDied;
 
             _enemyPool.Add(enemy);
@@ -70,5 +73,10 @@ public class EnemySpawner : MonoBehaviour
     {
         enemy.Deathed -= EnemyDied;
         _progress.Increase(enemy.EnemyItem.Points);
+    }
+    private void Stop()
+    {
+        _isActive = false;
+        _enemyPool.StopAll();
     }
 }
