@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9111315847655963360}
@@ -116,8 +116,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9111315847655963360}
   - component: {fileID: 7076173563931299126}
-  - component: {fileID: 5303773650145222334}
   - component: {fileID: 8110906647080267117}
+  - component: {fileID: -1359450699969053819}
   m_Layer: 0
   m_Name: Mandarin
   m_TagString: Untagged
@@ -175,19 +175,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &5303773650145222334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4257665025739942993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4298cac7970276b4fb552aba2414ae4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 0.25
 --- !u!114 &8110906647080267117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,3 +189,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <AttackItem>k__BackingField: {fileID: 11400000, guid: d18a9e5f34db68d47a4d1e024ff46952, type: 2}
+--- !u!114 &-1359450699969053819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4257665025739942993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd9af4082fe359d459e8fcbe04eaeb89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

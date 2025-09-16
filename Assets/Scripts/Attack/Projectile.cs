@@ -20,6 +20,13 @@ namespace Scripts.Attack
         {
             _mover = GetComponent<BaseAttackMover>();
             _mover.Initialize(direction, AttackItem);
+            _mover.UnActived += Unactive;
+        }
+
+        private void Unactive()
+        {
+            _mover.UnActived -= Unactive;
+            gameObject.SetActive(false);
         }
     }
 }

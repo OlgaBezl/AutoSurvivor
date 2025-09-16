@@ -11,7 +11,7 @@ namespace Scripts.Attack.Movers
             transform.position += _direction * AttackItem.Speed * Time.fixedDeltaTime;
         }
 
-        public override void Initialize(Vector3 direction, BaseAttackItem item)
+        public override void Initialize(Vector3 direction, BaseAttackItem item, int countItems = 0)
         {
             base.Initialize(direction, item);
             _direction = direction.normalized;

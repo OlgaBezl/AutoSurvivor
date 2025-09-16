@@ -15,7 +15,15 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: 4202938828118557322, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
   <Name>k__BackingField: Sound
   <IsAttack>k__BackingField: 1
+  <Type>k__BackingField: 0
   <Attack>k__BackingField: 5
   <Speed>k__BackingField: 20
+  <Radius>k__BackingField: 0
+  <RadiusVariation>k__BackingField: 0
+  <Height>k__BackingField: 0
+  <HeightVariation>k__BackingField: 0
+  <Distance>k__BackingField: 0
+  <SpawnInterval>k__BackingField: 0
+  <MaxCount>k__BackingField: 1
   <SuperVersion>k__BackingField: {fileID: 11400000, guid: 1bc9a87dc5d8c9c4e98aa5e62d2dd25a, type: 2}
   <TupleItem>k__BackingField: {fileID: 11400000, guid: d97fcf1bb09f33c4380cd464e2ad44b2, type: 2}

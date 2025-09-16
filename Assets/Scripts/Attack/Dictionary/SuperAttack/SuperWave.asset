@@ -15,5 +15,13 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: -2978653956524333172, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
   <Name>k__BackingField: SuperWave
   <IsAttack>k__BackingField: 1
+  <Type>k__BackingField: 0
   <Attack>k__BackingField: 10
   <Speed>k__BackingField: 20
+  <Radius>k__BackingField: 0
+  <RadiusVariation>k__BackingField: 0
+  <Height>k__BackingField: 0
+  <HeightVariation>k__BackingField: 0
+  <Distance>k__BackingField: 0
+  <SpawnInterval>k__BackingField: 0
+  <MaxCount>k__BackingField: 1

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5945527697410701643}
   - component: {fileID: 6972730328798185075}
-  - component: {fileID: 4526686697158529121}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -43,18 +42,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f06806f48c0c1f547b37ffcfefc8be8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxCount: 10
---- !u!114 &4526686697158529121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6769863616277781027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16ce4953189f7b54bab1ff5f3bb76137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
