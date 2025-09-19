@@ -2,38 +2,42 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressBar : MonoBehaviour
+namespace Scripts.UI
 {
-    [SerializeField] private Progress _progress;
-    [SerializeField] private Slider _slider;
-    [SerializeField] private TextMeshProUGUI _text;
-
-    private void OnValidate()
+    public class ProgressBar : MonoBehaviour
     {
-        if (_progress == null)
-            throw new System.ArgumentNullException(nameof(_progress));
+        [SerializeField] private Progress _progress;
+        [SerializeField] private Slider _slider;
+        [SerializeField] private TextMeshProUGUI _text;
 
-        if (_slider == null)
-            throw new System.ArgumentNullException(nameof(_slider));
+        private void OnValidate()
+        {
+            if (_progress == null)
+                throw new System.ArgumentNullException(nameof(_progress));
 
-        if (_text == null)
-            throw new System.ArgumentNullException(nameof(_text));
-    }
+            if (_slider == null)
+                throw new System.ArgumentNullException(nameof(_slider));
 
-    private void Awake()
-    {
-        _slider.value = 0;
-        _progress.ChangeValue += ChangeValue;
-        _progress.LevelUpped += ChangeLevel;
-    }
+            if (_text == null)
+                throw new System.ArgumentNullException(nameof(_text));
+        }
 
-    private void ChangeValue(float value)
-    {
-        _slider.value = value / _progress.LevelUpValue;
-    }
+        private void Awake()
+        {
+            _slider.value = 0;
+            _text.text = $"Lvl 1";
+            _progress.ChangeValue += ChangeValue;
+            _progress.LevelUpped += ChangeLevel;
+        }
 
-    private void ChangeLevel(int level)
-    {
-        _text.text = $"Lvl {level}";
+        private void ChangeValue(float value)
+        {
+            _slider.value = value / _progress.LevelUpValue;
+        }
+
+        private void ChangeLevel(int level)
+        {
+            _text.text = $"Lvl {level}";
+        }
     }
 }

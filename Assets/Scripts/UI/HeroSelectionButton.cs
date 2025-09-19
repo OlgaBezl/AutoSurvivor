@@ -1,36 +1,40 @@
+using Scripts.Heroes;
 using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HeroSelectionButton : MonoBehaviour
+namespace Scripts.UI
 {
-    [SerializeField] private Image _image;
-    [SerializeField] private TextMeshProUGUI _text;
-
-    private HeroItem _heroItem;
-
-    public event Action<HeroItem> HeroSelected;
-
-    private void OnValidate()
+    public class HeroSelectionButton : MonoBehaviour
     {
-        if (_image == null)
-            throw new ArgumentNullException(nameof(_image));
+        [SerializeField] private Image _image;
+        [SerializeField] private TextMeshProUGUI _text;
 
-        if (_text == null)
-            throw new ArgumentNullException(nameof(_text));
-    }
+        private HeroItem _heroItem;
 
-    public void Initialize(HeroItem heroItem)
-    {
-        _heroItem = heroItem;
+        public event Action<HeroItem> HeroSelected;
 
-        _image.sprite = _heroItem.Sprite;
-        _text.text = _heroItem.Name;
-    }
+        private void OnValidate()
+        {
+            if (_image == null)
+                throw new ArgumentNullException(nameof(_image));
 
-    public void SelectItem()
-    {
-        HeroSelected?.Invoke(_heroItem);
+            if (_text == null)
+                throw new ArgumentNullException(nameof(_text));
+        }
+
+        public void Initialize(HeroItem heroItem)
+        {
+            _heroItem = heroItem;
+
+            _image.sprite = _heroItem.Sprite;
+            _text.text = _heroItem.Name;
+        }
+
+        public void SelectItem()
+        {
+            HeroSelected?.Invoke(_heroItem);
+        }
     }
 }

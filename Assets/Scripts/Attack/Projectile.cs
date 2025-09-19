@@ -1,9 +1,12 @@
+using Scripts.Attack.Movers;
+using Scripts.Enemies;
+using Scripts.Items;
 using UnityEngine;
 
 namespace Scripts.Attack
 {
     [RequireComponent (typeof(BaseAttackMover))]
-    public class Projectile : BaseAttacker
+    public class Projectile : TouchAttacker
     {
         private BaseAttackMover _mover;
 
@@ -12,15 +15,16 @@ namespace Scripts.Attack
             if (collider.gameObject.TryGetComponent(out Enemy enemy))
             {
                 enemy.Damage(AttackItem.Attack);
-                gameObject.SetActive(false);
+                Unactive();
             }
         }
 
-        public override void Initialize(Vector3 direction)
+        public override void Initialize(Vector3 direction, Item item)
         {
             _mover = GetComponent<BaseAttackMover>();
-            _mover.Initialize(direction, AttackItem);
+            _mover.Initialize(direction, item);
             _mover.UnActived += Unactive;
+            base.Initialize(direction, item);
         }
 
         private void Unactive()

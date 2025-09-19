@@ -1,3 +1,5 @@
+using Scripts.Items;
+using Scripts.Items.ScriptableObjects;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,10 +8,10 @@ namespace Scripts.Attack
 {
     public class AttackDictionary : MonoBehaviour
     {
-        [SerializeField] private BaseAttacker[] _attackers;
+        [SerializeField] private TouchAttacker[] _attackers;
         //[SerializeField] private PassiveItem[] _passivePrefabs;
 
-        private IEnumerable<BaseAttackItem> _items;
+        private List<Item> _items;
 
         private void OnValidate()
         {
@@ -19,17 +21,22 @@ namespace Scripts.Attack
 
         private void Awake()
         {
-            _items = _attackers.Select(attack => attack.AttackItem);
+            _items = new List<Item>();
+
+            foreach (var dataItem in _attackers.Select(attack => attack.AttackItemData))
+            {
+                _items.Add(new Item(dataItem));
+            }                
         }
 
-        public IEnumerable<BaseAttackItem> GetAll()
+        public IEnumerable<Item> GetAll()
         {
             return _items;
         }
 
-        public BaseAttacker GetByItem(LevelUpItem levelUpItem)
+        public TouchAttacker GetByItem(LevelUpItemData levelUpItem)
         {
-            return _attackers.FirstOrDefault(item => item.AttackItem.Equals(levelUpItem));
+            return _attackers.FirstOrDefault(item => item.AttackItemData.Equals(levelUpItem));
         }
     }
 }

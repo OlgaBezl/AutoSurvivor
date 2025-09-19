@@ -187,4 +187,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9d86532a58318478030f7ac0806856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AttackItem>k__BackingField: {fileID: 11400000, guid: ae3f2ddf121bb584bb2afddcfe22aa71, type: 2}
+  <AttackItemData>k__BackingField: {fileID: 11400000, guid: ae3f2ddf121bb584bb2afddcfe22aa71, type: 2}

@@ -1,5 +1,8 @@
 using UnityEngine;
 
-public class BasePassive : MonoBehaviour
+namespace Scripts.Passives
 {
+    public class BasePassive : MonoBehaviour
+    {
+    }
 }

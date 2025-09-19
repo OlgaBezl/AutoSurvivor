@@ -1,54 +1,71 @@
+using Scripts.Enemies;
+using Scripts.Heroes;
+using Scripts.Items;
+using Scripts.UI;
 using UnityEngine;
 
-public class GameRoot : MonoBehaviour
+namespace Scripts
 {
-    [SerializeField] private EnemySpawner _enemySpawner;
-    [SerializeField] private Hero _hero;
-    [SerializeField] private LevelUpPanel _levelUpPanel;
-    [SerializeField] private GameObject _gameUIPanel;
-    [SerializeField] private Progress _progress;
-
-    private void OnValidate()
+    public class GameRoot : MonoBehaviour
     {
-        if(_enemySpawner == null)
-            throw new System.ArgumentNullException(nameof(_enemySpawner));
+        [SerializeField] private EnemySpawner _enemySpawner;
+        [SerializeField] private Hero _hero;
+        [SerializeField] private LevelUpPanel _levelUpPanel;
+        [SerializeField] private GameObject _gameUIPanel;
+        [SerializeField] private Progress _progress;
 
-        if (_hero == null)
-            throw new System.ArgumentNullException(nameof(_hero));
+        private bool _isNew = true;
 
-        if (_levelUpPanel == null)
-            throw new System.ArgumentNullException(nameof(_levelUpPanel));
+        private void OnValidate()
+        {
+            if (_enemySpawner == null)
+                throw new System.ArgumentNullException(nameof(_enemySpawner));
 
-        if (_gameUIPanel == null)
-            throw new System.ArgumentNullException(nameof(_gameUIPanel));
+            if (_hero == null)
+                throw new System.ArgumentNullException(nameof(_hero));
 
-        if (_progress == null)
-            throw new System.ArgumentNullException(nameof(_progress));
-    }
+            if (_levelUpPanel == null)
+                throw new System.ArgumentNullException(nameof(_levelUpPanel));
 
-    private void OnEnable()
-    {
-        _progress.LevelUpped += OpenLevelUpPanel;
-    }
+            if (_gameUIPanel == null)
+                throw new System.ArgumentNullException(nameof(_gameUIPanel));
 
-    private void OnDisable()
-    {
-        _progress.LevelUpped -= OpenLevelUpPanel;
-    }
+            if (_progress == null)
+                throw new System.ArgumentNullException(nameof(_progress));
+        }
 
-    public void StartLevel(LevelUpItem levelUpItem)
-    {
-        _gameUIPanel.SetActive(true);
-        _levelUpPanel.Hide();
-        _enemySpawner.Initialize();
-        _hero.Initialize(levelUpItem);
-    }
+        private void OnEnable()
+        {
+            _progress.LevelUpped += OpenLevelUpPanel;
+        }
 
-    private void OpenLevelUpPanel(int level)
-    {
-        _gameUIPanel.SetActive(false);
-        _levelUpPanel.Show();
-        _enemySpawner.Pause();
-        _hero.Pause();
+        private void OnDisable()
+        {
+            _progress.LevelUpped -= OpenLevelUpPanel;
+        }
+
+        public void StartLevel(Item levelUpItem)
+        {
+            _gameUIPanel.SetActive(true);
+            _levelUpPanel.Hide();
+
+            if (_isNew)
+            {
+                _isNew = false;
+                _enemySpawner.Initialize();
+                _hero.Initialize();
+            }
+
+            _enemySpawner.Play();
+            _hero.LevelUp(levelUpItem);
+        }
+
+        private void OpenLevelUpPanel(int level)
+        {
+            _gameUIPanel.SetActive(false);
+            _levelUpPanel.Show();
+            _enemySpawner.Pause();
+            _hero.Pause();
+        }
     }
 }

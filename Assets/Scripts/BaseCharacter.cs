@@ -1,28 +1,33 @@
+using Scripts.Healths;
 using System;
 using UnityEngine;
 
-public class BaseCharacter : MonoBehaviour
+namespace Scripts
 {
-    [SerializeField] private HealthSprite _healthSprite;
-
-    public Health Health { get; private set; }
-
-    private void OnValidate()
+    public class BaseCharacter : MonoBehaviour
     {
-        if (_healthSprite == null)
-            throw new ArgumentNullException(nameof(_healthSprite));
-    }
+        [SerializeField] private HealthSprite _healthSprite;
 
-    public void Initialize(float maxHealth)
-    {
-        Health = new Health(maxHealth);
-        _healthSprite.Initialize(Health);
-        _healthSprite.DeathAnimationFinished += Death;
-    }
+        public Health Health { get; private set; }
 
-    protected virtual void Death()
-    {
-        _healthSprite.DeathAnimationFinished -= Death;
-        gameObject.SetActive(false);
+        private void OnValidate()
+        {
+            if (_healthSprite == null)
+                throw new ArgumentNullException(nameof(_healthSprite));
+        }
+
+        public void Initialize(float maxHealth)
+        {
+            Health = new Health(maxHealth);
+            _healthSprite.Initialize(Health);
+            _healthSprite.DeathAnimationFinished += Death;
+            gameObject.SetActive(true);
+        }
+
+        protected virtual void Death()
+        {
+            _healthSprite.DeathAnimationFinished -= Death;
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -1,22 +1,26 @@
+using Scripts.Items;
 using System;
 using UnityEngine;
 
-public class BaseAttackMover : MonoBehaviour
+namespace Scripts.Attack.Movers
 {
-    public BaseAttackItem AttackItem { get; private set; }
-
-    public event Action UnActived;
-
-    public virtual void Initialize(Vector3 direction, BaseAttackItem item, int countItems = 0)
+    public class BaseAttackMover : MonoBehaviour
     {
-        if (item == null)
-            throw new ArgumentNullException(nameof(item));
+        public Item AttackItem { get; private set; }
 
-        AttackItem = item;
-    }
+        public event Action UnActived;
 
-    protected void Unactive()
-    {
-        UnActived?.Invoke();
+        public virtual void Initialize(Vector3 direction, Item item, int countItems = 0)
+        {
+            if (item == null)
+                throw new ArgumentNullException(nameof(item));
+
+            AttackItem = item;
+        }
+
+        protected void Unactive()
+        {
+            UnActived?.Invoke();
+        }
     }
 }

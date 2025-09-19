@@ -18,9 +18,9 @@ MonoBehaviour:
   <Type>k__BackingField: 4
   <Attack>k__BackingField: 10
   <Speed>k__BackingField: 20
-  <Radius>k__BackingField: 5
-  <RadiusVariation>k__BackingField: 2
-  <Height>k__BackingField: 3
+  <Radius>k__BackingField: 6
+  <RadiusVariation>k__BackingField: 3
+  <Height>k__BackingField: 4
   <HeightVariation>k__BackingField: 1
   <Distance>k__BackingField: 20
   <SpawnInterval>k__BackingField: 50

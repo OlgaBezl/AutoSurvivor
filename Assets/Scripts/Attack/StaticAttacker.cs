@@ -1,9 +1,10 @@
+using Scripts.Enemies;
 using UnityEngine;
 
 namespace Scripts.Attack
 {
     [RequireComponent(typeof(Collider2D))]
-    public class StaticAttacker : BaseAttacker
+    public class StaticAttacker : TouchAttacker
     {
         private void OnTriggerStay2D(Collider2D collider)
         {

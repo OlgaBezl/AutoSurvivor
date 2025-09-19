@@ -1,52 +1,56 @@
 using Scripts.Attack;
+using Scripts.Items;
 using UnityEngine;
 
-public class LevelUpPanel : MonoBehaviour
+namespace Scripts.UI
 {
-    [SerializeField] private GameRoot _gameRoot;
-    [SerializeField] private LevelUpButton _levelUpMenu;
-    [SerializeField] private AttackDictionary _attackSpawner;
-    [SerializeField] private int _itemsCount;
-    [SerializeField] private Transform _container;
-
-    private void OnValidate()
+    public class LevelUpPanel : MonoBehaviour
     {
-        if (_gameRoot == null)
-            throw new System.ArgumentNullException(nameof(_gameRoot));
+        [SerializeField] private GameRoot _gameRoot;
+        [SerializeField] private LevelUpButton _levelUpMenu;
+        [SerializeField] private AttackDictionary _attackSpawner;
+        [SerializeField] private int _itemsCount;
+        [SerializeField] private Transform _container;
 
-        if (_levelUpMenu == null)
-            throw new System.ArgumentNullException(nameof(_levelUpMenu));
-
-        if (_attackSpawner == null)
-            throw new System.ArgumentNullException(nameof(_attackSpawner));
-
-        if (_itemsCount <= 0)
-            throw new System.ArgumentOutOfRangeException(nameof(_itemsCount));
-    }
-
-    private void Start()
-    {
-        Show();
-    }
-
-    public void Show()
-    {
-        foreach (BaseAttackItem item in _attackSpawner.GetAll())
+        private void OnValidate()
         {
-            LevelUpButton menuItem = Instantiate(_levelUpMenu, _container);
-            menuItem.Initialize(_gameRoot, item);
+            if (_gameRoot == null)
+                throw new System.ArgumentNullException(nameof(_gameRoot));
+
+            if (_levelUpMenu == null)
+                throw new System.ArgumentNullException(nameof(_levelUpMenu));
+
+            if (_attackSpawner == null)
+                throw new System.ArgumentNullException(nameof(_attackSpawner));
+
+            if (_itemsCount <= 0)
+                throw new System.ArgumentOutOfRangeException(nameof(_itemsCount));
         }
 
-        gameObject.SetActive(true);
-    }
-
-    public void Hide()
-    {
-        gameObject.SetActive(false);
-
-        while (_container.childCount > 0)
+        private void Start()
         {
-            DestroyImmediate(_container.GetChild(0).gameObject);
+            Show();
+        }
+
+        public void Show()
+        {
+            foreach (Item item in _attackSpawner.GetAll())
+            {
+                LevelUpButton menuItem = Instantiate(_levelUpMenu, _container);
+                menuItem.Initialize(_gameRoot, item);
+            }
+
+            gameObject.SetActive(true);
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+
+            while (_container.childCount > 0)
+            {
+                DestroyImmediate(_container.GetChild(0).gameObject);
+            }
         }
     }
 }

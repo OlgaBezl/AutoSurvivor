@@ -1,35 +1,40 @@
+using Scripts.Items;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelUpButton : MonoBehaviour
+namespace Scripts.UI
 {
-    [SerializeField] private Image _image;
-    [SerializeField] private TextMeshProUGUI _text;
-
-    private GameRoot _gameRoot;
-    private LevelUpItem _levelUpItem;
-
-    private void OnValidate()
+    public class LevelUpButton : MonoBehaviour
     {
-        if (_image == null)
-            throw new System.ArgumentNullException(nameof(_image));
+        [SerializeField] private Image _image;
+        [SerializeField] private TextMeshProUGUI _text;
 
-        if (_text == null)
-            throw new System.ArgumentNullException(nameof(_text));
-    }
+        private GameRoot _gameRoot;
+        private Item _levelUpItem;
 
-    public void Initialize(GameRoot gameRoot, LevelUpItem levelUpItem)
-    {
-        _gameRoot = gameRoot;
-        _levelUpItem = levelUpItem;
+        private void OnValidate()
+        {
+            if (_image == null)
+                throw new System.ArgumentNullException(nameof(_image));
 
-        _image.sprite = _levelUpItem.Sprite;
-        _text.text = _levelUpItem.Name;
-    }
+            if (_text == null)
+                throw new System.ArgumentNullException(nameof(_text));
+        }
 
-    public void SelectItem()
-    {
-        _gameRoot.StartLevel(_levelUpItem);
+        public void Initialize(GameRoot gameRoot, Item levelUpItem)
+        {
+            _gameRoot = gameRoot;
+            _levelUpItem = levelUpItem;
+
+            _image.sprite = _levelUpItem.Sprite;
+            _text.text = $"{_levelUpItem.NameWithNextLevel}";
+        }
+
+        public void SelectItem()
+        {
+            _levelUpItem.LevelUp();
+            _gameRoot.StartLevel(_levelUpItem);
+        }
     }
 }

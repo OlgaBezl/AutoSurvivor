@@ -1,3 +1,4 @@
+using Scripts.Items;
 using UnityEngine;
 
 namespace Scripts.Attack.Movers
@@ -11,7 +12,7 @@ namespace Scripts.Attack.Movers
             transform.position += _direction * AttackItem.Speed * Time.fixedDeltaTime;
         }
 
-        public override void Initialize(Vector3 direction, BaseAttackItem item, int countItems = 0)
+        public override void Initialize(Vector3 direction, Item item, int countItems = 0)
         {
             base.Initialize(direction, item);
             _direction = direction.normalized;
