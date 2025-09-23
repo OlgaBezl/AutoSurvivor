@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 79618cd7dfea9b244bdc08a5868e9d79
+guid: 1f6f49528053a4a46acdd210810ffcb8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,10 +69,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 3
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: turtle_0
+      name: turtle2-01-01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2133.5
-        width: 2133.5
-        height: 2133.5
+        y: 3200.25
+        width: 1066.75
+        height: 1066.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fdbfdf80385b9e409fc55bceef2d38a
-      internalID: -1988786589
+      spriteID: 1df4c474f269cf6468f30e480f9864cb
+      internalID: 459336300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turtle_1
+      name: turtle2-01-01_1
       rect:
         serializedVersion: 2
-        x: 2133
-        y: 2133.5
-        width: 2133.5
-        height: 2133.5
+        x: 1066
+        y: 3200.25
+        width: 1066.75
+        height: 1066.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a644cc0a8489cc44a70cdda453e992a
-      internalID: -1595984348
+      spriteID: 12d21e5ebd2d6eb41be6be123c815605
+      internalID: -704363840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: turtle_2
+      name: turtle2-01-01_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0.5
-        width: 2133.5
-        height: 2133.5
+        x: 2132
+        y: 3200.25
+        width: 1066.75
+        height: 1066.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed4aee6cb20af1145b32cd080f65e074
-      internalID: -623245444
+      spriteID: cdb19541bfdb76f479ff5f78466b829c
+      internalID: -1061574232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turtle2-01-01_3
+      rect:
+        serializedVersion: 2
+        x: 3198
+        y: 3200.25
+        width: 1066.75
+        height: 1066.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a169069936223b34bbfeaf50a17bdb64
+      internalID: 350317460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: turtle2-01-01_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2134.25
+        width: 1066.75
+        height: 1066.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d1b796d51b1e34690e94cd15941814
+      internalID: -317732197
       vertices: []
       indices: 
       edges: []
@@ -196,9 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      turtle_0: -1988786589
-      turtle_1: -1595984348
-      turtle_2: -623245444
+      turtle2-01-01_0: 459336300
+      turtle2-01-01_1: -704363840
+      turtle2-01-01_2: -1061574232
+      turtle2-01-01_3: 350317460
+      turtle2-01-01_4: -317732197
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

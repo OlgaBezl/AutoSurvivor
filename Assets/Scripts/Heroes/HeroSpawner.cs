@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace Scripts.Heroes
@@ -15,6 +16,12 @@ namespace Scripts.Heroes
         public Hero[] GetAll()
         {
             return _heroPrefabs;
+        }
+
+        public Hero Spawn(HeroItem item)
+        {
+            Hero prefab = _heroPrefabs.FirstOrDefault(hero => hero.HeroItem.Equals(item));
+            return Instantiate(prefab, transform);
         }
     }
 }

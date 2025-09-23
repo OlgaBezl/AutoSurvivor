@@ -34,7 +34,12 @@ namespace Scripts.Attack
             return _items;
         }
 
-        public TouchAttacker GetByItem(LevelUpItemData levelUpItem)
+        public Item GetItemByItemData(LevelUpItemData levelUpItem)
+        {
+            return _items.FirstOrDefault(item => item.Data.Equals(levelUpItem));
+        }
+
+        public TouchAttacker GetByItemData(LevelUpItemData levelUpItem)
         {
             return _attackers.FirstOrDefault(item => item.AttackItemData.Equals(levelUpItem));
         }

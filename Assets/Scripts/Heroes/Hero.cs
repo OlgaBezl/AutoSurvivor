@@ -1,6 +1,7 @@
 using Scripts.Attack;
 using Scripts.Enemies;
 using Scripts.Items;
+using Scripts.Items.ScriptableObjects;
 using Scripts.UI;
 using System;
 using System.Collections.Generic;
@@ -13,32 +14,42 @@ namespace Scripts.Heroes
     {
         [field: SerializeField] public HeroItem HeroItem { get; private set; }
 
-        [SerializeField] private AttackDictionary _attackDictionary;
-        [SerializeField] private EnemyPool _enemyPool;
-        [SerializeField] private HealthBar _healthBar;
-        [SerializeField] private AttackSpawner _spawner;
+        [SerializeField] private BaseAttackItem _defaultAttackItem;
+        [SerializeField] private AttackSpawner _attackSpawner;
 
-        List<AttackSpawner> _spawnres;
+        public Item DefaultAttack { get; private set; }
 
         public event Action HeroDeath;
 
+        private List<AttackSpawner> _spawnres; 
+        private HealthBar _healthBar;
+        private AttackDictionary _attackDictionary;
+        private EnemyPool _enemyPool;
+        
         private void Awake()
         {
             if (HeroItem == null)
                 throw new ArgumentNullException(nameof(HeroItem));
 
-            if (_attackDictionary == null)
-                throw new ArgumentNullException(nameof(_attackDictionary));
+            if (_defaultAttackItem == null)
+                throw new ArgumentNullException(nameof(_defaultAttackItem));
 
-            if (_enemyPool == null)
-                throw new ArgumentNullException(nameof(_enemyPool));
+            if (_attackSpawner == null)
+                throw new ArgumentNullException(nameof(_attackSpawner));
         }
 
-        public void Initialize()
+        public void Initialize(HealthBar healthBar, AttackDictionary attackDictionary, EnemyPool enemyPool)
         {
+            _healthBar = healthBar;
+            _attackDictionary = attackDictionary;
+            _enemyPool = enemyPool;
+
             Initialize(HeroItem.Health);
             _healthBar.Initialize(Health);
             _spawnres = new List<AttackSpawner>();
+
+            DefaultAttack = _attackDictionary.GetItemByItemData(_defaultAttackItem);
+            gameObject.SetActive(true);
         }
 
         public void LevelUp(Item levelUpItem)
@@ -49,8 +60,8 @@ namespace Scripts.Heroes
             {
                 if (levelUpItem.Data.IsAttack)
                 {
-                    AttackSpawner spawner = Instantiate(_spawner, transform.position, Quaternion.identity, transform);
-                    spawner.Initialize(_enemyPool, _attackDictionary.GetByItem(levelUpItem.Data), levelUpItem);
+                    AttackSpawner spawner = Instantiate(_attackSpawner, transform.position, Quaternion.identity, transform);
+                    spawner.Initialize(_enemyPool, _attackDictionary.GetByItemData(levelUpItem.Data), levelUpItem);
                     gameObject.SetActive(true);
                     _spawnres.Add(spawner);
                 }

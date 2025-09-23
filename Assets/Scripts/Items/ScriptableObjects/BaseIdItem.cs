@@ -10,7 +10,7 @@ namespace Scripts.Items.ScriptableObjects
 
         public override bool Equals(object obj)
         {
-            if (obj is LevelUpItemData item)
+            if (obj is BaseIdItem item)
                 return _uid == item._uid;
             else
                 return false;
@@ -18,7 +18,7 @@ namespace Scripts.Items.ScriptableObjects
 
         public new bool Equals(object x, object y)
         {
-            if (x is LevelUpItemData xItem && y is LevelUpItemData yItem)
+            if (x is BaseIdItem xItem && y is BaseIdItem yItem)
                 return xItem._uid == yItem._uid;
             else
                 return false;

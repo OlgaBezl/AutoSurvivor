@@ -133,8 +133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSprite: {fileID: 6820763935393314673}
   <HeroItem>k__BackingField: {fileID: 11400000, guid: cc98bd83373a53f458ddaa09118208b3, type: 2}
-  _attackSpawner: {fileID: 0}
-  _enemyPool: {fileID: 0}
+  _defaultAttackItem: {fileID: 11400000, guid: 395fc9e7c5480e64c9ef6cec61e8da51, type: 2}
+  _attackSpawner: {fileID: 6972730328798185075, guid: 0f8fd75735342a04babe9ad379f2ca9c, type: 3}
 --- !u!58 &3017363428002909859
 CircleCollider2D:
   m_ObjectHideFlags: 0

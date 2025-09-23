@@ -7,7 +7,6 @@ namespace Scripts.Enemies
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private Enemy[] _enemyPrefabs;
-        [SerializeField] private Hero _hero;
         [SerializeField] private EnemyPool _enemyPool;
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private int _interval = 100;
@@ -15,14 +14,12 @@ namespace Scripts.Enemies
 
         private int _counter = 0;
         private bool _isActive = false;
+        private Hero _hero;
 
         private void OnValidate()
         {
             if (_enemyPrefabs == null || !_enemyPrefabs.Any())
                 throw new System.ArgumentNullException(nameof(_enemyPrefabs));
-
-            if (_hero == null)
-                throw new System.ArgumentNullException(nameof(_hero));
 
             if (_enemyPool == null)
                 throw new System.ArgumentNullException(nameof(_enemyPool));
@@ -37,8 +34,9 @@ namespace Scripts.Enemies
                 throw new System.ArgumentNullException(nameof(_progress));
         }
 
-        public void Initialize()
+        public void Initialize(Hero hero)
         {
+            _hero = hero;
             _hero.HeroDeath += Stop;
         }
 
