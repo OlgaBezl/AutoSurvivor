@@ -16,6 +16,7 @@ namespace Scripts.Heroes
 
         [SerializeField] private BaseAttackItem _defaultAttackItem;
         [SerializeField] private AttackSpawner _attackSpawner;
+        [SerializeField] private Transform _spriteTransform;
 
         public Item DefaultAttack { get; private set; }
 
@@ -25,7 +26,8 @@ namespace Scripts.Heroes
         private HealthBar _healthBar;
         private AttackDictionary _attackDictionary;
         private EnemyPool _enemyPool;
-        
+        private HeroMover _mover;
+
         private void Awake()
         {
             if (HeroItem == null)
@@ -36,15 +38,22 @@ namespace Scripts.Heroes
 
             if (_attackSpawner == null)
                 throw new ArgumentNullException(nameof(_attackSpawner));
+
+            if (_spriteTransform == null)
+                throw new ArgumentNullException(nameof(_spriteTransform));
         }
 
-        public void Initialize(HealthBar healthBar, AttackDictionary attackDictionary, EnemyPool enemyPool)
+        public void Initialize(HealthBar healthBar, AttackDictionary attackDictionary, EnemyPool enemyPool, HeroMover mover)
         {
             _healthBar = healthBar;
             _attackDictionary = attackDictionary;
             _enemyPool = enemyPool;
 
+            _mover = mover;
+            _mover.Initialize(this);
+
             Initialize(HeroItem.Health);
+
             _healthBar.Initialize(Health);
             _spawnres = new List<AttackSpawner>();
 
@@ -61,7 +70,7 @@ namespace Scripts.Heroes
                 if (levelUpItem.Data.IsAttack)
                 {
                     AttackSpawner spawner = Instantiate(_attackSpawner, transform.position, Quaternion.identity, transform);
-                    spawner.Initialize(_enemyPool, _attackDictionary.GetByItemData(levelUpItem.Data), levelUpItem);
+                    spawner.Initialize(_enemyPool, _attackDictionary.GetByItemData(levelUpItem.Data), levelUpItem, transform);
                     gameObject.SetActive(true);
                     _spawnres.Add(spawner);
                 }
@@ -82,6 +91,18 @@ namespace Scripts.Heroes
         public void Damage(float value)
         {
             Health.Damage(value);
+        }
+
+        public void Turn(Vector3 direction)
+        {
+            Quaternion rotation = _spriteTransform.rotation;            
+            rotation.y = direction.x > 0 ? 0 : 180;
+            _spriteTransform.rotation = rotation;
+
+            foreach (AttackSpawner spawner in _spawnres)
+            {
+                spawner.TryTurnAttacks(direction);
+            }
         }
 
         protected override void Death()

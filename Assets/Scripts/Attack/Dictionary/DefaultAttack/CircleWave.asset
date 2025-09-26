@@ -18,6 +18,7 @@ MonoBehaviour:
   <Type>k__BackingField: 0
   <Attack>k__BackingField: 5
   <Speed>k__BackingField: 20
+  <LifeTime>k__BackingField: 500
   <Radius>k__BackingField: 20
   <RadiusVariation>k__BackingField: 0
   <Height>k__BackingField: 0

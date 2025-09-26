@@ -18,6 +18,7 @@ MonoBehaviour:
   <Type>k__BackingField: 0
   <Attack>k__BackingField: 5
   <Speed>k__BackingField: 20
+  <LifeTime>k__BackingField: 0
   <Radius>k__BackingField: 0
   <RadiusVariation>k__BackingField: 0
   <Height>k__BackingField: 0
@@ -25,5 +26,6 @@ MonoBehaviour:
   <Distance>k__BackingField: 0
   <SpawnInterval>k__BackingField: 0
   <MaxCount>k__BackingField: 1
+  <CanTurn>k__BackingField: 1
   <SuperVersion>k__BackingField: {fileID: 11400000, guid: 1bc9a87dc5d8c9c4e98aa5e62d2dd25a, type: 2}
   <TupleItem>k__BackingField: {fileID: 11400000, guid: d97fcf1bb09f33c4380cd464e2ad44b2, type: 2}

@@ -8,7 +8,7 @@ namespace Scripts.Attack.Movers
         private float _currentAngle;
         private int _maxRoundCount = 3;
         private float _maxAngle;
-        private Vector3 _center = Vector3.zero;
+        private Transform _hero;
 
         private void FixedUpdate()
         {
@@ -16,7 +16,7 @@ namespace Scripts.Attack.Movers
             {
                 _currentAngle += Time.fixedDeltaTime * AttackItem.Speed;
                 Vector3 direction = Quaternion.AngleAxis(_currentAngle, Vector3.forward) * Vector3.up;
-                transform.position = _center + direction * AttackItem.Radius;
+                transform.position = _hero.position + direction * AttackItem.Radius;
             }
             else
             {
@@ -24,9 +24,10 @@ namespace Scripts.Attack.Movers
             }
         }
 
-        public override void Initialize(Vector3 direction, Item item, int countItems = 0)
+        public override void Initialize(Transform direction, Item item, int countItems = 0, Transform hero = null)
         {
             base.Initialize(direction, item);
+            _hero = hero;
             _currentAngle = 0;
             _maxAngle = _maxRoundCount * 360f;
         }

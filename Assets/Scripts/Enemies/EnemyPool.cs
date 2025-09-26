@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 namespace Scripts.Enemies
 {
@@ -56,7 +57,10 @@ namespace Scripts.Enemies
                 }
             }
 
+            _counter++;
             return nearestEnemy;
         }
+
+        private int _counter = 0;
     }
 }

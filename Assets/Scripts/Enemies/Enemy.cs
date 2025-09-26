@@ -10,16 +10,13 @@ namespace Scripts.Enemies
 
         public event Action<Enemy> Deathed;
 
-        private Vector3 _target;
-        private Transform _hero;
+        private Transform _target;
         private bool _isMove = false;
         private bool isOn = true;
 
         public void Initialize(Transform hero)
         {
-            _hero = hero;
-
-            _target = _hero.transform.position;
+            _target = hero;
 
             base.Initialize(EnemyItem.Health);
             Health.Deathed += Unactive;
@@ -32,7 +29,7 @@ namespace Scripts.Enemies
         {
             if (_isMove)
             {
-                transform.position += (_target - transform.position).normalized * EnemyItem.Speed * Time.fixedDeltaTime;
+                transform.position += (_target.position - transform.position).normalized * EnemyItem.Speed * Time.fixedDeltaTime;
             }
         }
 

@@ -5,6 +5,7 @@ namespace Scripts.Heroes
 {
     public class HeroSpawner : MonoBehaviour
     {
+        [SerializeField] private Transform _container;
         [SerializeField] private Hero[] _heroPrefabs;
 
         private void OnValidate()
@@ -21,7 +22,7 @@ namespace Scripts.Heroes
         public Hero Spawn(HeroItem item)
         {
             Hero prefab = _heroPrefabs.FirstOrDefault(hero => hero.HeroItem.Equals(item));
-            return Instantiate(prefab, transform);
+            return Instantiate(prefab, _container);
         }
     }
 }

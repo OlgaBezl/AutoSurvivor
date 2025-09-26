@@ -17,6 +17,7 @@ namespace Scripts.Attack
         private TouchAttacker _attacker;
         private List<TouchAttacker> _attackerPool;
         private Item _item;
+        private Transform _hero;
 
         private void FixedUpdate()
         {
@@ -29,7 +30,7 @@ namespace Scripts.Attack
                 TrySpawn();
         }
 
-        public void Initialize(EnemyPool enemyPool, TouchAttacker attacker, Item item)
+        public void Initialize(EnemyPool enemyPool, TouchAttacker attacker, Item item, Transform hero)
         {
             if (enemyPool == null)
                 throw new System.ArgumentNullException(nameof(enemyPool));
@@ -40,11 +41,15 @@ namespace Scripts.Attack
             if (item == null)
                 throw new System.ArgumentNullException(nameof(item));
 
+            if (hero == null)
+                throw new System.ArgumentNullException(nameof(hero));
+
             gameObject.name = $"AttackSpawner_{attacker.AttackItemData.Name}";
 
             _enemyPool = enemyPool;
             _attacker = attacker;
             _item = item;
+            _hero = hero;
             _attackerPool = new List<TouchAttacker>();
 
             if (_attacker.AttackItemData.Type == AttackType.Static)
@@ -54,32 +59,40 @@ namespace Scripts.Attack
             }
         }
 
+        public void TryTurnAttacks(Vector2 direction)
+        {
+            foreach (TouchAttacker attacker in _attackerPool)
+            {
+                attacker.TryTurnAttacks(direction);
+            }
+        }
+
         private void TrySpawn()
         {
             _spawnCounter = 0;
 
-            if (_attackerPool.Count(attack => attack.gameObject.activeSelf) >= _attacker.AttackItemData.MaxCount)
-            {
-                return;
-            }
+            //if (_attackerPool.Count(attack => attack.gameObject.activeSelf) >= _attacker.AttackItemData.MaxCount)
+            //{
+            //    return;
+            //}
 
             Enemy nearestEnemy = _enemyPool.GetNearest(transform.position);
             Vector3 direction = nearestEnemy == null ? Vector3.left : nearestEnemy.transform.position;
+            Transform target = nearestEnemy == null ? null : nearestEnemy.transform;
 
             TouchAttacker attacker = _attackerPool.FirstOrDefault(attack => !attack.gameObject.activeSelf);
 
             if (attacker == null)
             {
-                attacker = Instantiate(_attacker, transform.position, transform.rotation, transform);
+                attacker = Instantiate(_attacker, _hero.position, _hero.rotation, transform);
                 _attackerPool.Add(attacker);
             }
             else
             {
-                attacker.transform.position = Vector3.zero;
-                attacker.gameObject.SetActive(true);
+                attacker.transform.position = _hero.position;
             }
             
-            attacker.Initialize(direction, _item);
+            attacker.Initialize(target, _item, _hero);
         }
     }
 }

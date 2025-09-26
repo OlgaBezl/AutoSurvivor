@@ -51,6 +51,7 @@ MonoBehaviour:
   <HeroItem>k__BackingField: {fileID: 11400000, guid: 741731a7ad0fbd648b40a51d7546418c, type: 2}
   _defaultAttackItem: {fileID: 11400000, guid: ae3f2ddf121bb584bb2afddcfe22aa71, type: 2}
   _attackSpawner: {fileID: 6972730328798185075, guid: 0f8fd75735342a04babe9ad379f2ca9c, type: 3}
+  _spriteTransform: {fileID: 6493439161149565416}
 --- !u!58 &2858863594482503126
 CircleCollider2D:
   m_ObjectHideFlags: 0

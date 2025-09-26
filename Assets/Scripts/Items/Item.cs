@@ -18,7 +18,9 @@ namespace Scripts.Items
         public float Distance => _attackData.Distance;
         public int SpawnInterval => _attackData.SpawnInterval;
         public int MaxCount => _attackData.MaxCount;
+        public float LifeTime => _attackData.LifeTime;
         public Sprite Sprite => _attackData.Sprite;
+        public bool CanTurn => _attackData.CanTurn;
 
         public LevelUpItemData Data => _attackData;
         private BaseAttackItem _attackData;

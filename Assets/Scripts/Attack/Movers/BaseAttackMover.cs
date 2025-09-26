@@ -10,7 +10,7 @@ namespace Scripts.Attack.Movers
 
         public event Action UnActived;
 
-        public virtual void Initialize(Vector3 direction, Item item, int countItems = 0)
+        public virtual void Initialize(Transform direction, Item item, int countItems = 0, Transform hero = null)
         {
             if (item == null)
                 throw new ArgumentNullException(nameof(item));

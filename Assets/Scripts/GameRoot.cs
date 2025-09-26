@@ -17,6 +17,7 @@ namespace Scripts
         [SerializeField] private HealthBar _healthBar;
         [SerializeField] private AttackDictionary _attackDictionary;
         [SerializeField] private EnemyPool _enemyPool;
+        [SerializeField] private HeroMover _mover;
 
         private Hero _hero;
 
@@ -42,6 +43,9 @@ namespace Scripts
 
             if (_enemyPool == null)
                 throw new System.ArgumentNullException(nameof(_enemyPool));
+
+            if (_mover == null)
+                throw new System.ArgumentNullException(nameof(_mover));
         }
 
         private void OnEnable()
@@ -62,10 +66,12 @@ namespace Scripts
             _heroSelectionPanel.Hide();
 
             _enemySpawner.Initialize(_hero);
-            hero.Initialize(_healthBar, _attackDictionary, _enemyPool);
+            hero.Initialize(_healthBar, _attackDictionary, _enemyPool, _mover);
 
             _enemySpawner.Play();
             _hero.LevelUp(hero.DefaultAttack);
+
+            _mover.StartMove();
         }
 
         public void StartLevel(Item levelUpItem)
@@ -74,10 +80,13 @@ namespace Scripts
             _levelUpPanel.Hide();
             _enemySpawner.Play();
             _hero.LevelUp(levelUpItem);
+
+            _mover.StartMove();
         }
 
         private void OpenLevelUpPanel(int level)
         {
+            _mover.Stop();
             _gameUIPanel.SetActive(false);
             _levelUpPanel.Show();
             _enemySpawner.Pause();

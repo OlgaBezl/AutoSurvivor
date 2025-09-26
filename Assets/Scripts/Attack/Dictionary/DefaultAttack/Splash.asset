@@ -16,14 +16,15 @@ MonoBehaviour:
   <Name>k__BackingField: Splash
   <IsAttack>k__BackingField: 1
   <Type>k__BackingField: 1
-  <Attack>k__BackingField: 2
+  <Attack>k__BackingField: 4
   <Speed>k__BackingField: 10
+  <LifeTime>k__BackingField: 5
   <Radius>k__BackingField: 0
   <RadiusVariation>k__BackingField: 0
   <Height>k__BackingField: 0
   <HeightVariation>k__BackingField: 0
   <Distance>k__BackingField: 0
-  <SpawnInterval>k__BackingField: 20
+  <SpawnInterval>k__BackingField: 10
   <MaxCount>k__BackingField: 20
   <SuperVersion>k__BackingField: {fileID: 0}
   <TupleItem>k__BackingField: {fileID: 0}

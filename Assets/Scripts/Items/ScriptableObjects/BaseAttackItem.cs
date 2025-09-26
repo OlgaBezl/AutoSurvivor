@@ -7,6 +7,7 @@ namespace Scripts.Items.ScriptableObjects
         [field: SerializeField] public Scripts.Attack.AttackType Type { get; private set; }
         [field: SerializeField] public float Attack { get; private set; }
         [field: SerializeField] public float Speed { get; private set; }
+        [field: SerializeField] public float LifeTime { get; private set; }
         [field: SerializeField] public float Radius { get; private set; }
         [field: SerializeField] public float RadiusVariation { get; private set; }
         [field: SerializeField] public float Height { get; private set; }
@@ -14,5 +15,6 @@ namespace Scripts.Items.ScriptableObjects
         [field: SerializeField] public float Distance { get; private set; }
         [field: SerializeField] public int SpawnInterval { get; private set; }
         [field: SerializeField] public int MaxCount { get; private set; }
+        [field: SerializeField] public bool CanTurn { get; private set; }
     }
 }

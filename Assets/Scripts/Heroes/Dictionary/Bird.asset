@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Sprite>k__BackingField: {fileID: 465227922, guid: 5ddb63d3d04413c42bdc5a82cb390194, type: 3}
   <Health>k__BackingField: 300
+  <Speed>k__BackingField: 10
   <Name>k__BackingField: Bird
   <Description>k__BackingField: Bird bird bird

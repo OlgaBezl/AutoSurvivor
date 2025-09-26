@@ -15,10 +15,20 @@ namespace Scripts.Attack
                 throw new System.ArgumentNullException(nameof(AttackItemData));
         }
 
-        public virtual void Initialize(Vector3 direction, Item item)
+        public virtual void Initialize(Transform direction, Item item, Transform hero)
         {
             AttackItem = item;
             gameObject.SetActive(true);
+        }
+
+        public void TryTurnAttacks(Vector2 direction)
+        {
+            if (AttackItemData.CanTurn)
+            {
+                Quaternion rotation = transform.rotation;
+                rotation.y = direction.x > 0 ? 0 : 180;
+                transform.rotation = rotation;
+            }
         }
     }
 }

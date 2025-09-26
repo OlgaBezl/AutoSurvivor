@@ -1,6 +1,7 @@
 using Scripts.Attack.Movers;
 using Scripts.Enemies;
 using Scripts.Items;
+using System.Collections;
 using UnityEngine;
 
 namespace Scripts.Attack
@@ -19,12 +20,21 @@ namespace Scripts.Attack
             }
         }
 
-        public override void Initialize(Vector3 direction, Item item)
+        public override void Initialize(Transform direction, Item item, Transform hero)
         {
             _mover = GetComponent<BaseAttackMover>();
-            _mover.Initialize(direction, item);
+            _mover.Initialize(direction, item, 0, hero);
             _mover.UnActived += Unactive;
-            base.Initialize(direction, item);
+            base.Initialize(direction, item, hero);
+
+            if(AttackItem.LifeTime > 0)
+                StartCoroutine(UnactiveAfterTime());
+        }
+
+        public IEnumerator UnactiveAfterTime()
+        {
+            yield return new WaitForSeconds(AttackItem.LifeTime);
+            Unactive();
         }
 
         private void Unactive()

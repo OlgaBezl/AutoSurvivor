@@ -43,12 +43,14 @@ namespace Scripts.Enemies
         public void Play()
         {
             gameObject.SetActive(true);
+            _enemyPool.gameObject.SetActive(true);
             _isActive = true;
         }
 
         public void Pause()
         {
             gameObject.SetActive(false);
+            _enemyPool.gameObject.SetActive(false);
             _isActive = false;
         }
 
