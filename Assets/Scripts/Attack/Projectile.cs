@@ -1,30 +1,46 @@
+using Scripts.Attack.Movers;
+using Scripts.Enemies;
+using Scripts.Items;
+using System.Collections;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+namespace Scripts.Attack
 {
-    [SerializeField] private float _speed = 0.5f;
-
-    private Vector3 _direction;
-    private LevelUpItem _levelUpItem;
-
-    private void Update()
+    [RequireComponent (typeof(BaseAttackMover))]
+    public class Projectile : TouchAttacker
     {
-        transform.position += _direction * _speed * Time.deltaTime;
-    }
+        private BaseAttackMover _mover;
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.TryGetComponent(out Enemy enemy))
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            enemy.Damage(_levelUpItem.AttackValue);
-            Destroy(gameObject);
+            if (collider.gameObject.TryGetComponent(out Enemy enemy))
+            {
+                enemy.Damage(AttackItem.Attack);
+                Unactive();
+            }
+        }
+
+        public override void Initialize(Transform direction, Item item, Transform hero)
+        {
+            _mover = GetComponent<BaseAttackMover>();
+            _mover.Initialize(direction, item, 0, hero);
+            _mover.UnActived += Unactive;
+            base.Initialize(direction, item, hero);
+
+            if(AttackItem.LifeTime > 0)
+                StartCoroutine(UnactiveAfterTime());
+        }
+
+        public IEnumerator UnactiveAfterTime()
+        {
+            yield return new WaitForSeconds(AttackItem.LifeTime);
+            Unactive();
+        }
+
+        private void Unactive()
+        {
+            _mover.UnActived -= Unactive;
+            gameObject.SetActive(false);
         }
     }
-
-    public void Initialize(Vector3 direction, LevelUpItem levelUpItem)
-    {
-        _direction = direction.normalized;
-        _levelUpItem = levelUpItem;
-    }
-
 }

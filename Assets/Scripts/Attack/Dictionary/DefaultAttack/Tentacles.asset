@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b9ed32a592a5a478e319eb096d9881, type: 3}
+  m_Name: Tentacles
+  m_EditorClassIdentifier: 
+  <Sprite>k__BackingField: {fileID: -2248273014285675650, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
+  <Name>k__BackingField: Tentacles
+  <IsAttack>k__BackingField: 1
+  <Type>k__BackingField: 0
+  <Attack>k__BackingField: 10
+  <Speed>k__BackingField: 0
+  <Radius>k__BackingField: 0
+  <RadiusVariation>k__BackingField: 0
+  <Height>k__BackingField: 0
+  <HeightVariation>k__BackingField: 0
+  <Distance>k__BackingField: 0
+  <SpawnInterval>k__BackingField: 0
+  <MaxCount>k__BackingField: 1
+  <SuperVersion>k__BackingField: {fileID: 11400000, guid: 8450c7b96b45d4c45a7b0921153b33f5, type: 2}
+  <TupleItem>k__BackingField: {fileID: 11400000, guid: c9b80780fd635c140928866378cad00a, type: 2}

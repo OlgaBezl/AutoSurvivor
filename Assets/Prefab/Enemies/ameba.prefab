@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2253231603727424658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51,9 +51,6 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -91,7 +88,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &8821150624129863644
 Animator:
-  serializedVersion: 7
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +102,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -123,7 +119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c996b78216119664d9124719e7ca2aab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 6579407636791499535}
   _damageColor: {r: 0.764151, g: 0, b: 0, a: 1}
 --- !u!1 &3381258274769584952
 GameObject:
@@ -136,7 +131,6 @@ GameObject:
   - component: {fileID: 2253231603727424658}
   - component: {fileID: 2037243426365763394}
   - component: {fileID: 3565543892923064203}
-  - component: {fileID: 6579407636791499535}
   m_Layer: 0
   m_Name: ameba
   m_TagString: Untagged
@@ -153,8 +147,8 @@ Transform:
   m_GameObject: {fileID: 3381258274769584952}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.51, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 985321545888590072}
@@ -172,7 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0593eb5faa92ab64995e459bc7bc2e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _healthSprite: {fileID: 565587856598129635}
+  <EnemyItem>k__BackingField: {fileID: 11400000, guid: a50efbba1e8e0bc42ab1b7c10a8b6c88, type: 2}
 --- !u!58 &3565543892923064203
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -181,7 +176,6 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3381258274769584952}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -205,20 +199,7 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
---- !u!114 &6579407636791499535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3381258274769584952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc894c908673c4e47b83790e3066c65b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MaxValue>k__BackingField: 100
+  serializedVersion: 2
+  m_Radius: 0.5

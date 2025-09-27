@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b9ed32a592a5a478e319eb096d9881, type: 3}
+  m_Name: Splash
+  m_EditorClassIdentifier: 
+  <Sprite>k__BackingField: {fileID: 84785096, guid: af7f373d1b4dde147bae44e81b76769a, type: 3}
+  <Name>k__BackingField: Splash
+  <IsAttack>k__BackingField: 1
+  <Type>k__BackingField: 1
+  <Attack>k__BackingField: 4
+  <Speed>k__BackingField: 10
+  <LifeTime>k__BackingField: 5
+  <Radius>k__BackingField: 0
+  <RadiusVariation>k__BackingField: 0
+  <Height>k__BackingField: 0
+  <HeightVariation>k__BackingField: 0
+  <Distance>k__BackingField: 0
+  <SpawnInterval>k__BackingField: 10
+  <MaxCount>k__BackingField: 20
+  <SuperVersion>k__BackingField: {fileID: 0}
+  <TupleItem>k__BackingField: {fileID: 0}
