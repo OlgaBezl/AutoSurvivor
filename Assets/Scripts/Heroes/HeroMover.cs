@@ -1,15 +1,19 @@
 using Scripts.Heroes;
 using UnityEngine;
+using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 
 //[RequireComponent (typeof(Rigidbody2D))]
 public class HeroMover : MonoBehaviour
 {
+    [SerializeField] private PlayerInput _playerInput;
     public Vector3 Direction { get; private set; } = Vector3.right;
 
     private Hero _hero;
     private HeroItem _heroItem;
     private bool _isMove;
     private bool _right = true;
+    
     public void Initialize(Hero hero)
     {
         _hero = hero;
@@ -29,9 +33,10 @@ public class HeroMover : MonoBehaviour
     {
         if (_isMove)
         {
-            Direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+            Direction = _playerInput.actions["Move"].ReadValue<Vector2>();
+            //= new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
-            if(Direction.x != 0)
+            if (Direction.x != 0)
             {
                 if (_right != Direction.x > 0)
                     _hero.Turn(Direction);
