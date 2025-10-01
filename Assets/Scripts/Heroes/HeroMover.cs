@@ -4,12 +4,12 @@ using UnityEngine;
 //[RequireComponent (typeof(Rigidbody2D))]
 public class HeroMover : MonoBehaviour
 {
-    public Vector3 Direction { get; private set; }
+    public Vector3 Direction { get; private set; } = Vector3.right;
 
     private Hero _hero;
     private HeroItem _heroItem;
     private bool _isMove;
-    private bool _right;
+    private bool _right = true;
     public void Initialize(Hero hero)
     {
         _hero = hero;
