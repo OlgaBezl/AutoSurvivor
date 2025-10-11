@@ -34,7 +34,7 @@ namespace Scripts.UI
         public void SelectItem()
         {
             _levelUpItem.LevelUp();
-            _gameRoot.StartLevel(_levelUpItem);
+            _gameRoot.ContinueLevel(_levelUpItem);
         }
     }
 }

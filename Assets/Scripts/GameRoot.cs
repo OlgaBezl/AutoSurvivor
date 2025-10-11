@@ -10,14 +10,17 @@ namespace Scripts
     public class GameRoot : MonoBehaviour
     {
         [SerializeField] private EnemySpawner _enemySpawner;
-        [SerializeField] private LevelUpPanel _levelUpPanel;
-        [SerializeField] private HeroSelectionPanel _heroSelectionPanel;
-        [SerializeField] private GameObject _gameUIPanel;
         [SerializeField] private Progress _progress;
         [SerializeField] private HealthBar _healthBar;
         [SerializeField] private AttackDictionary _attackDictionary;
         [SerializeField] private EnemyPool _enemyPool;
         [SerializeField] private HeroMover _mover;
+
+        [Header("Panels")]
+        [SerializeField] private LevelUpPanel _levelUpPanel;
+        [SerializeField] private HeroSelectionPanel _heroSelectionPanel;
+        [SerializeField] private GameObject _gameUIPanel;
+        [SerializeField] private DeathPanel _deathPanel;
 
         private Hero _hero;
 
@@ -61,6 +64,7 @@ namespace Scripts
         public void StartLevel(Hero hero)
         {
             _hero = hero;
+            _hero.HeroDeath += ShowDeathPanel;
 
             _gameUIPanel.SetActive(true);
             _heroSelectionPanel.Hide();
@@ -74,7 +78,7 @@ namespace Scripts
             _mover.StartMove();
         }
 
-        public void StartLevel(Item levelUpItem)
+        public void ContinueLevel(Item levelUpItem)
         {
             _gameUIPanel.SetActive(true);
             _levelUpPanel.Hide();
@@ -89,6 +93,17 @@ namespace Scripts
             _mover.Stop();
             _gameUIPanel.SetActive(false);
             _levelUpPanel.Show();
+            _enemySpawner.Pause();
+            _hero.Pause();
+        }
+
+        private void ShowDeathPanel()
+        {
+            _hero.HeroDeath -= ShowDeathPanel;
+
+            _mover.Stop();
+            _gameUIPanel.SetActive(false);
+            _deathPanel.Show();
             _enemySpawner.Pause();
             _hero.Pause();
         }

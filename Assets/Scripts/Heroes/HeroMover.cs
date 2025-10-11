@@ -17,6 +17,7 @@ public class HeroMover : MonoBehaviour
     public void Initialize(Hero hero)
     {
         _hero = hero;
+        _hero.HeroDeath += HeroDeath;
     }
 
     public void StartMove()
@@ -53,5 +54,11 @@ public class HeroMover : MonoBehaviour
             //_rigidbody.MovePosition(_rigidbody.position + Direction * _heroItem.Speed * Time.fixedDeltaTime);
             transform.position += Direction.normalized * _hero.HeroItem.Speed * Time.fixedDeltaTime;
         }
+    }
+
+    private void HeroDeath()
+    {
+        _hero.HeroDeath -= HeroDeath;
+        Stop();
     }
 }
