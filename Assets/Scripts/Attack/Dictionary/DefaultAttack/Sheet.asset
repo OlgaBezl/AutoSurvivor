@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b9ed32a592a5a478e319eb096d9881, type: 3}
   m_Name: Sheet
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 1825458539601162070, guid: 5baecc8487b8af341b27c4465d133f28, type: 3}
-  <Name>k__BackingField: Sheet
-  <IsAttack>k__BackingField: 1
-  <Type>k__BackingField: 3
-  <Attack>k__BackingField: 30
-  <Speed>k__BackingField: 100
-  <LifeTime>k__BackingField: 0
-  <Radius>k__BackingField: 3
-  <RadiusVariation>k__BackingField: 0
-  <Height>k__BackingField: 0
-  <HeightVariation>k__BackingField: 0
-  <Distance>k__BackingField: 0
-  <SpawnInterval>k__BackingField: 60
-  <MaxCount>k__BackingField: 3
-  <SuperVersion>k__BackingField: {fileID: 0}
-  <TupleItem>k__BackingField: {fileID: 0}
+  Sprite: {fileID: 3112227911578874566, guid: 5baecc8487b8af341b27c4465d133f28, type: 3}
+  Name: Sheet
+  Type: 3
+  Attack: 5
+  Speed: 100
+  LifeTime: 10
+  Radius: 3
+  RadiusVariation: 2
+  Height: 0
+  HeightVariation: 0
+  Distance: 0
+  SpawnInterval: 100
+  MaxCount: 0
+  CanTurn: 0
+  SuperVersion: {fileID: 0}
+  TupleItem: {fileID: 0}

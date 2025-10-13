@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b9ed32a592a5a478e319eb096d9881, type: 3}
   m_Name: Splash
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 84785096, guid: af7f373d1b4dde147bae44e81b76769a, type: 3}
-  <Name>k__BackingField: Splash
-  <IsAttack>k__BackingField: 1
-  <Type>k__BackingField: 1
-  <Attack>k__BackingField: 4
-  <Speed>k__BackingField: 10
-  <LifeTime>k__BackingField: 5
-  <Radius>k__BackingField: 0
-  <RadiusVariation>k__BackingField: 0
-  <Height>k__BackingField: 0
-  <HeightVariation>k__BackingField: 0
-  <Distance>k__BackingField: 0
-  <SpawnInterval>k__BackingField: 10
-  <MaxCount>k__BackingField: 20
-  <SuperVersion>k__BackingField: {fileID: 0}
-  <TupleItem>k__BackingField: {fileID: 0}
+  Sprite: {fileID: 84785096, guid: af7f373d1b4dde147bae44e81b76769a, type: 3}
+  Name: Splash
+  Type: 1
+  Attack: 2
+  Speed: 5
+  LifeTime: 30
+  Radius: 0
+  RadiusVariation: 0
+  Height: 0
+  HeightVariation: 0
+  Distance: 0
+  SpawnInterval: 20
+  MaxCount: 0
+  CanTurn: 0
+  SuperVersion: {fileID: 0}
+  TupleItem: {fileID: 0}

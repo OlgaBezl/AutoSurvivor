@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthSprite: {fileID: 7228478579649860422}
   <HeroItem>k__BackingField: {fileID: 11400000, guid: 5ee72b30365b4314488107f9d474f08b, type: 2}
-  _defaultAttackItem: {fileID: 11400000, guid: cc8dac56b81fb8e44b470990f40ff61f, type: 2}
+  _defaultAttackItem: {fileID: 11400000, guid: 395fc9e7c5480e64c9ef6cec61e8da51, type: 2}
   _attackSpawner: {fileID: 6972730328798185075, guid: 0f8fd75735342a04babe9ad379f2ca9c, type: 3}
   _spriteTransform: {fileID: 4810752707412921173}
 --- !u!58 &8583772418510190266
