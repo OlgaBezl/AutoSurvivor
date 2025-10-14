@@ -8,6 +8,8 @@ namespace Scripts.Enemies
     {
         [field: SerializeField] public EnemyItem EnemyItem { get; private set; }
 
+        public float DistanceToHero => Vector3.Distance(transform.position, _target.position);
+
         public event Action<Enemy> Deathed;
 
         private Transform _target;

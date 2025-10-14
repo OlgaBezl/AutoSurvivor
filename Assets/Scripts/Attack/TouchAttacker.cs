@@ -6,7 +6,7 @@ namespace Scripts.Attack
 {
     public class TouchAttacker : MonoBehaviour
     {
-        [field: SerializeField] public BaseAttackItem AttackItemData { get; private set; }
+        [field: SerializeField] public AttackItemData AttackItemData { get; private set; }
         public Item AttackItem { get; private set; }
 
         private void OnValidate()

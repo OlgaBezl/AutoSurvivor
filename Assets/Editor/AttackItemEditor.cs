@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using AttackType = Scripts.Attack.AttackType;
 
-[CustomEditor(typeof(AttackItem))]
+[CustomEditor(typeof(AttackItemData))]
 public class AttackItemEditor : Editor
 {
     private SerializedProperty _spriteProperty;
@@ -18,7 +18,9 @@ public class AttackItemEditor : Editor
     private SerializedProperty _heightVariationProperty;
     private SerializedProperty _distanceProperty;
     private SerializedProperty _spawnIntervalProperty;
-    private SerializedProperty _canTurnProperty; 
+    private SerializedProperty _canTurnProperty;
+    private SerializedProperty _addProjectileWhenLevelingUpProperty;
+    private SerializedProperty _isBaseVersionProperty;
     private SerializedProperty _superVersionProperty; 
     private SerializedProperty _tupleItemProperty;
 
@@ -26,19 +28,21 @@ public class AttackItemEditor : Editor
     {
         _spriteProperty = serializedObject.FindProperty("Sprite");
         _nameProperty = serializedObject.FindProperty("Name");
-        _typeProperty = serializedObject.FindProperty("Type");
-        _attackProperty = serializedObject.FindProperty("Attack");
-        _speedProperty = serializedObject.FindProperty("Speed");
-        _lifeTimeProperty = serializedObject.FindProperty("LifeTime");
-        _radiusProperty = serializedObject.FindProperty("Radius");
-        _radiusVariationProperty = serializedObject.FindProperty("RadiusVariation");
-        _heightProperty = serializedObject.FindProperty("Height");
-        _heightVariationProperty = serializedObject.FindProperty("HeightVariation");
-        _distanceProperty = serializedObject.FindProperty("Distance");
-        _spawnIntervalProperty = serializedObject.FindProperty("SpawnInterval");
-        _canTurnProperty = serializedObject.FindProperty("CanTurn");
-        _superVersionProperty = serializedObject.FindProperty("SuperVersion");
-        _tupleItemProperty = serializedObject.FindProperty("TupleItem");
+        _typeProperty = serializedObject.FindProperty("_type");
+        _attackProperty = serializedObject.FindProperty("_attack");
+        _speedProperty = serializedObject.FindProperty("_speed");
+        _lifeTimeProperty = serializedObject.FindProperty("_lifeTime");
+        _radiusProperty = serializedObject.FindProperty("_radius");
+        _radiusVariationProperty = serializedObject.FindProperty("_radiusVariation");
+        _heightProperty = serializedObject.FindProperty("_height");
+        _heightVariationProperty = serializedObject.FindProperty("_heightVariation");
+        _distanceProperty = serializedObject.FindProperty("_distance");
+        _spawnIntervalProperty = serializedObject.FindProperty("_spawnInterval");
+        _canTurnProperty = serializedObject.FindProperty("_canTurn");
+        _addProjectileWhenLevelingUpProperty = serializedObject.FindProperty("_addProjectileWhenLevelingUp");
+        _isBaseVersionProperty = serializedObject.FindProperty("_isBaseVersion");
+        _superVersionProperty = serializedObject.FindProperty("_superVersion");
+        _tupleItemProperty = serializedObject.FindProperty("_tuplePassiveItem");
     }
 
     public override void OnInspectorGUI()
@@ -50,10 +54,16 @@ public class AttackItemEditor : Editor
         EditorGUILayout.PropertyField(_nameProperty, new GUIContent("Name"));
         EditorGUILayout.PropertyField(_typeProperty, new GUIContent("Type"));
         EditorGUILayout.PropertyField(_attackProperty, new GUIContent("Attack value"));
-        EditorGUILayout.PropertyField(_superVersionProperty, new GUIContent("Super version"));
-        EditorGUILayout.PropertyField(_tupleItemProperty, new GUIContent("Tuple passive item"));
+        EditorGUILayout.PropertyField(_isBaseVersionProperty, new GUIContent("Is base version"));
 
         AttackType currentType = (AttackType)_typeProperty.intValue;
+        bool isBaseVersion = _isBaseVersionProperty.boolValue;
+
+        if (isBaseVersion)
+        {
+            EditorGUILayout.PropertyField(_superVersionProperty, new GUIContent("Super version"));
+            EditorGUILayout.PropertyField(_tupleItemProperty, new GUIContent("Tuple passive item"));
+        }
 
         if (currentType == AttackType.Static)
         {
@@ -64,6 +74,7 @@ public class AttackItemEditor : Editor
             EditorGUILayout.PropertyField(_speedProperty, new GUIContent("Speed"));
             EditorGUILayout.PropertyField(_lifeTimeProperty, new GUIContent("Life time"));
             EditorGUILayout.PropertyField(_spawnIntervalProperty, new GUIContent("Spawn interval"));
+            EditorGUILayout.PropertyField(_addProjectileWhenLevelingUpProperty, new GUIContent("Add projectile when leveling up"));
         }
 
         if (currentType == AttackType.BunchProjectile)

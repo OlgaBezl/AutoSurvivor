@@ -14,7 +14,7 @@ namespace Scripts.Heroes
     {
         [field: SerializeField] public HeroItem HeroItem { get; private set; }
 
-        [SerializeField] private BaseAttackItem _defaultAttackItem;
+        [SerializeField] private AttackItemData _defaultAttackItem;
         [SerializeField] private AttackSpawner _attackSpawner;
         [SerializeField] private Transform _spriteTransform;
 

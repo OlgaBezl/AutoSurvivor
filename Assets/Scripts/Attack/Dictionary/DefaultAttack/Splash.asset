@@ -9,22 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b9ed32a592a5a478e319eb096d9881, type: 3}
+  m_Script: {fileID: 11500000, guid: 845fde07cf85b854c94d5d841f0fdd99, type: 3}
   m_Name: Splash
   m_EditorClassIdentifier: 
   Sprite: {fileID: 84785096, guid: af7f373d1b4dde147bae44e81b76769a, type: 3}
   Name: Splash
-  Type: 1
-  Attack: 2
-  Speed: 5
-  LifeTime: 30
-  Radius: 0
-  RadiusVariation: 0
-  Height: 0
-  HeightVariation: 0
-  Distance: 0
-  SpawnInterval: 20
-  MaxCount: 0
-  CanTurn: 0
-  SuperVersion: {fileID: 0}
-  TupleItem: {fileID: 0}
+  _type: 1
+  _attack: 2
+  _speed: 5
+  _lifeTime: 30
+  _radius: 0
+  _radiusVariation: 0
+  _height: 0
+  _heightVariation: 0
+  _distance: 0
+  _spawnInterval: 25
+  _maxCount: 0
+  _canTurn: 0
+  _addProjectileWhenLevelingUp: 1
+  _isBaseVersion: 1
+  _superVersion: {fileID: 0}
+  _tuplePassiveItem: {fileID: 0}

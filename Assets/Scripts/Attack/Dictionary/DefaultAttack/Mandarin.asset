@@ -9,22 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89b9ed32a592a5a478e319eb096d9881, type: 3}
+  m_Script: {fileID: 11500000, guid: 845fde07cf85b854c94d5d841f0fdd99, type: 3}
   m_Name: Mandarin
   m_EditorClassIdentifier: 
   Sprite: {fileID: 6621252853494989987, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
   Name: Mandarin
-  Type: 4
-  Attack: 10
-  Speed: 8
-  LifeTime: 10
-  Radius: 10
-  RadiusVariation: 2
-  Height: 4
-  HeightVariation: 1
-  Distance: 10
-  SpawnInterval: 50
-  MaxCount: 0
-  CanTurn: 0
-  SuperVersion: {fileID: 11400000, guid: 5a8d7be4df6b0b3439a499e3df687c47, type: 2}
-  TupleItem: {fileID: 11400000, guid: 5024721bcf5fd5d4e892c37ab711d04a, type: 2}
+  _type: 4
+  _attack: 10
+  _speed: 8
+  _lifeTime: 10
+  _radius: 10
+  _radiusVariation: 2
+  _height: 4
+  _heightVariation: 1
+  _distance: 10
+  _spawnInterval: 50
+  _maxCount: 0
+  _canTurn: 0
+  _addProjectileWhenLevelingUp: 1
+  _isBaseVersion: 1
+  _superVersion: {fileID: 0}
+  _tuplePassiveItem: {fileID: 0}

@@ -41,24 +41,27 @@ namespace Scripts.Enemies
             _enemies.ForEach(enemy => enemy.Stop());
         }
 
-        public Enemy GetNearest(Vector3 position)
-        {
-            float minDistance = float.MaxValue;
-            Enemy nearestEnemy = null;
+        public List<Enemy> GetNearests(int count)
+        { 
+            List<Enemy> activeEnemies = _enemies.Where(enemy => enemy.gameObject.activeSelf).OrderBy(enemy => enemy.DistanceToHero).ToList();
+                         
+            return activeEnemies.Count < count ? activeEnemies : activeEnemies.Take(count).ToList();
 
-            foreach (Enemy enemy in _enemies.Where(e => e.gameObject.activeSelf))
-            {
-                float distance = Vector3.Distance(enemy.transform.position, position);
+            //float minDistance = float.MaxValue;
+            //var nearestsEnemy = new List<Enemy>();
 
-                if (distance < minDistance)
-                {
-                    minDistance = distance;
-                    nearestEnemy = enemy;
-                }
-            }
+            //foreach (Enemy enemy in _enemies.Where(e => e.gameObject.activeSelf))
+            //{
+            //    float distance = Vector3.Distance(enemy.transform.position, position);
 
-            _counter++;
-            return nearestEnemy;
+            //    if (distance < minDistance)
+            //    {
+            //        minDistance = distance;
+            //        nearestEnemy = enemy;
+            //    }
+            //}
+
+            //return nearestsEnemy;
         }
 
         private int _counter = 0;

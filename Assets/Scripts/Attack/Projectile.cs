@@ -31,7 +31,7 @@ namespace Scripts.Attack
                 StartCoroutine(UnactiveAfterTime());
         }
 
-        public IEnumerator UnactiveAfterTime()
+        private IEnumerator UnactiveAfterTime()
         {
             yield return new WaitForSeconds(AttackItem.LifeTime);
             Unactive();

@@ -76,23 +76,30 @@ namespace Scripts.Attack
             //    return;
             //}
 
-            Enemy nearestEnemy = _enemyPool.GetNearest(transform.position);
-            Vector3 direction = nearestEnemy == null ? Vector3.left : nearestEnemy.transform.position;
-            Transform target = nearestEnemy == null ? null : nearestEnemy.transform;
+            List<Enemy> nearestEnemies = _item.Type == AttackType.SeekerProjectile 
+                ? _enemyPool.GetNearests(_item.ProjectileCount)
+                : new List<Enemy>();
 
-            TouchAttacker attacker = _attackerPool.FirstOrDefault(attack => !attack.gameObject.activeSelf);
+            for (int i = 0; i < _item.ProjectileCount; i++)
+            {
+                Enemy nearestEnemy = i < nearestEnemies.Count ? nearestEnemies[i] : null;
+                //Vector3 direction = nearestEnemy == null ? Vector3.left : nearestEnemy.transform.position;
+                Transform target = nearestEnemy == null ? null : nearestEnemy.transform;
 
-            if (attacker == null)
-            {
-                attacker = Instantiate(_attacker, _hero.position, _hero.rotation, transform);
-                _attackerPool.Add(attacker);
+                TouchAttacker attacker = _attackerPool.FirstOrDefault(attack => !attack.gameObject.activeSelf);
+
+                if (attacker == null)
+                {
+                    attacker = Instantiate(_attacker, _hero.position, _hero.rotation, transform);
+                    _attackerPool.Add(attacker);
+                }
+                else
+                {
+                    attacker.transform.position = _hero.position;
+                }
+
+                attacker.Initialize(target, _item, _hero);
             }
-            else
-            {
-                attacker.transform.position = _hero.position;
-            }
-            
-            attacker.Initialize(target, _item, _hero);
         }
     }
 }
