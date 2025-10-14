@@ -68,6 +68,8 @@ namespace Scripts.UI
 
         public void StartGame()
         {
+            Debug.Log("---   HeroSelectionPanel StartGame   ---");
+            Debug.Log($"_selectedHeroItem {_selectedHeroItem?.Name}");
             _gameRoot.StartLevel(_heroSpawner.Spawn(_selectedHeroItem));
         }
 

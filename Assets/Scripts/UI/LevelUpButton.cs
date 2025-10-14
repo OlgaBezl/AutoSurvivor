@@ -33,6 +33,8 @@ namespace Scripts.UI
 
         public void SelectItem()
         {
+            Debug.Log("---   LevelUpButton SelectItem   ---");
+            Debug.Log($"_levelUpItem: {_levelUpItem?.NameWithNextLevel}");
             _levelUpItem.LevelUp();
             _gameRoot.ContinueLevel(_levelUpItem);
         }

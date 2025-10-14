@@ -63,6 +63,8 @@ namespace Scripts
 
         public void StartLevel(Hero hero)
         {
+            Debug.Log("---   GameRoot StartLevel   ---");
+            Debug.Log($"hero: {hero?.gameObject?.name}");
             _hero = hero;
             _hero.HeroDeath += ShowDeathPanel;
 
@@ -80,6 +82,8 @@ namespace Scripts
 
         public void ContinueLevel(Item levelUpItem)
         {
+            Debug.Log("---   GameRoot ContinueLevel   ---");
+            Debug.Log($"levelUpItem: {levelUpItem?.NameWithNextLevel}");
             _gameUIPanel.SetActive(true);
             _levelUpPanel.Hide();
             _enemySpawner.Play();
