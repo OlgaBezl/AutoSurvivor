@@ -1,3 +1,3 @@
 Build path: C:/Users/Zver/Documents/GitHub/AutoSurvivor/Builds
-Build number: 5
+Build number: 6
 PluginYG version: 2.005
