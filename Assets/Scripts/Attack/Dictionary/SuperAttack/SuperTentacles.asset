@@ -9,11 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db1cdfaa163727d43bbe1243ffe0ed44, type: 3}
+  m_Script: {fileID: 11500000, guid: 845fde07cf85b854c94d5d841f0fdd99, type: 3}
   m_Name: SuperTentacles
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -2248273014285675650, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
-  <Name>k__BackingField: SuperTentacles
-  <IsAttack>k__BackingField: 1
-  <Attack>k__BackingField: 10
-  <Speed>k__BackingField: 0
+  Sprite: {fileID: -2248273014285675650, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
+  Name: 
+  _type: 0
+  _attack: 0
+  _speed: 0
+  _lifeTime: 0
+  _radius: 0
+  _radiusVariation: 0
+  _height: 0
+  _heightVariation: 0
+  _distance: 0
+  _spawnInterval: 0
+  _maxCount: 0
+  _canTurn: 0
+  _addProjectileWhenLevelingUp: 0
+  _increaseWhenLevelingUp: 0
+  _increasePercent: 0
+  _isBaseVersion: 0
+  _superVersion: {fileID: 0}
+  _tuplePassiveItem: {fileID: 0}

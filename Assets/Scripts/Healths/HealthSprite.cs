@@ -14,6 +14,7 @@ namespace Scripts.Healths
         private SpriteRenderer _spriteRenderer;
         private int _damageCounter;
         private Health _health;
+
         public void Initialize(Health health)
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();

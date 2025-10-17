@@ -1,4 +1,5 @@
 using Scripts.Items.ScriptableObjects;
+using System;
 using UnityEngine;
 
 namespace Scripts.Items
@@ -25,7 +26,9 @@ namespace Scripts.Items
         public LevelUpItemData Data => _attackData;
 
         public int ProjectileCount { get; private set; } = 1;
+        public LevelUpItemData OldVersionData { get; private set; }
 
+        public event Action<float> Increased;
 
         private AttackItemData _attackData;
 
@@ -44,12 +47,17 @@ namespace Scripts.Items
                 {
                     ProjectileCount = Level;
                 }
+                if (_attackData.IncreaseWhenLevelingUp)
+                {
+                    Increased?.Invoke(_attackData.IncreasePercent);
+                }
             }
             else
             {
-                if (_attackData.IsBaseVersion)
+                if (_attackData.IsBaseVersion && _attackData.SuperVersion != null)
                 {
-
+                    OldVersionData = _attackData;
+                    _attackData = _attackData.SuperVersion;
                 }
             }
         }

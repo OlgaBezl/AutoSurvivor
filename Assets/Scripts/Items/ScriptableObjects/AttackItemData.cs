@@ -18,6 +18,8 @@ namespace Scripts.Items.ScriptableObjects
         [SerializeField] private int _maxCount;
         [SerializeField] private bool _canTurn;
         [SerializeField] private bool _addProjectileWhenLevelingUp;
+        [SerializeField] private bool _increaseWhenLevelingUp;
+        [SerializeField] private float _increasePercent;
         [SerializeField] private bool _isBaseVersion;
         [SerializeField] private AttackItemData _superVersion;
         [SerializeField] private PassiveItem _tuplePassiveItem;
@@ -35,6 +37,8 @@ namespace Scripts.Items.ScriptableObjects
         public int MaxCount => _maxCount;
         public bool CanTurn => _canTurn;
         public bool AddProjectileWhenLevelingUp => _addProjectileWhenLevelingUp;
+        public bool IncreaseWhenLevelingUp => _increaseWhenLevelingUp;
+        public float IncreasePercent => _increasePercent;
         public bool IsBaseVersion => _isBaseVersion;
         public AttackItemData SuperVersion => _superVersion;
         public PassiveItem PassiveItem => _tuplePassiveItem;

@@ -27,6 +27,8 @@ MonoBehaviour:
   _maxCount: 0
   _canTurn: 0
   _addProjectileWhenLevelingUp: 0
+  _increaseWhenLevelingUp: 1
+  _increasePercent: 20
   _isBaseVersion: 0
   _superVersion: {fileID: 0}
   _tuplePassiveItem: {fileID: 0}

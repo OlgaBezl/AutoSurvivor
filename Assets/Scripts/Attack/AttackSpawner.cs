@@ -3,6 +3,7 @@ using Scripts.Items;
 using Scripts.Items.ScriptableObjects;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Scripts.Attack
@@ -57,6 +58,18 @@ namespace Scripts.Attack
                 _canSpawn = false;
                 TrySpawn();
             }
+        }
+
+        public void Claer()
+        {
+            foreach (TouchAttacker attacker in _attackerPool)
+            {
+                attacker.Clear();
+                Destroy(attacker.gameObject);
+            }
+
+            _attackerPool.Clear();
+            Destroy(gameObject);
         }
 
         public void TryTurnAttacks(Vector2 direction)

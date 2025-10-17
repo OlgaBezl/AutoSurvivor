@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845fde07cf85b854c94d5d841f0fdd99, type: 3}
   m_Name: Wave
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 0}
-  Name: 
+  Sprite: {fileID: -2978653956524333172, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
+  Name: Wave
   _type: 0
   _attack: 5
   _speed: 0
@@ -27,6 +27,8 @@ MonoBehaviour:
   _maxCount: 0
   _canTurn: 0
   _addProjectileWhenLevelingUp: 0
+  _increaseWhenLevelingUp: 1
+  _increasePercent: 10
   _isBaseVersion: 1
   _superVersion: {fileID: 11400000, guid: cc8dac56b81fb8e44b470990f40ff61f, type: 2}
   _tuplePassiveItem: {fileID: 11400000, guid: becb40216581d5b4e83ffe834bc03d9f, type: 2}
