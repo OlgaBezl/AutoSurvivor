@@ -17,16 +17,18 @@ MonoBehaviour:
   _type: 3
   _attack: 5
   _speed: 100
-  _lifeTime: 10
+  _lifeTime: 5
   _radius: 3
   _radiusVariation: 0
   _height: 0
   _heightVariation: 0
   _distance: 0
-  _spawnInterval: 100
+  _spawnInterval: 6
   _maxCount: 0
   _canTurn: 0
   _addProjectileWhenLevelingUp: 1
+  _increaseWhenLevelingUp: 0
+  _increasePercent: 0
   _isBaseVersion: 1
   _superVersion: {fileID: 0}
   _tuplePassiveItem: {fileID: 0}

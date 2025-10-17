@@ -20,12 +20,12 @@ namespace Scripts.Attack
             }
         }
 
-        public override void Initialize(Transform direction, Item item, Transform hero)
+        public override void Initialize(Transform direction, Item item, Transform hero, int index)
         {
             _mover = GetComponent<BaseAttackMover>();
-            _mover.Initialize(direction, item, 0, hero);
+            _mover.Initialize(direction, item, hero, index);
             _mover.UnActived += Unactive;
-            base.Initialize(direction, item, hero);
+            base.Initialize(direction, item, hero, index);
 
             if(AttackItem.LifeTime > 0)
                 StartCoroutine(UnactiveAfterTime());

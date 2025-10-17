@@ -11,7 +11,7 @@ namespace Scripts.Attack.Movers
         private float _arcHeight;
         private bool _isActive = false;
 
-        public override void Initialize(Transform direction, Item item, int countItems = 0, Transform hero = null)
+        public override void Initialize(Transform direction, Item item, Transform hero, int index)
         {
             base.Initialize(direction, item);
 

@@ -101,6 +101,14 @@ public class AttackItemEditor : Editor
         if (currentType == AttackType.CircleProjectile)
         {
             EditorGUILayout.PropertyField(_radiusProperty, new GUIContent("Radius"));
+
+            float lifeTime = _lifeTimeProperty.floatValue;
+            int spawnInterval = _spawnIntervalProperty.intValue;
+
+            if(lifeTime > spawnInterval)
+            {
+                throw new System.ArgumentOutOfRangeException($"{nameof(lifeTime)} cant be greater {nameof(spawnInterval)}");
+            }
         }
 
         EditorGUILayout.Space();

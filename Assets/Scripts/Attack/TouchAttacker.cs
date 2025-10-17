@@ -21,7 +21,7 @@ namespace Scripts.Attack
                 throw new System.ArgumentNullException(nameof(AttackItemData));
         }
 
-        public virtual void Initialize(Transform direction, Item item, Transform hero)
+        public virtual void Initialize(Transform direction, Item item, Transform hero, int index)
         {
             _collider2D = GetComponent<Collider2D>();
 

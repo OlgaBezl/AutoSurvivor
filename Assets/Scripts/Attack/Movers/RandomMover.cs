@@ -13,7 +13,7 @@ namespace Scripts.Attack.Movers
                 transform.position += _directionNormalized * AttackItem.Speed * Time.fixedDeltaTime;
         }
 
-        public override void Initialize(Transform direction, Item item, int countItems = 0, Transform hero = null)
+        public override void Initialize(Transform direction, Item item, Transform hero, int index)
         {
             base.Initialize(direction, item);
 
