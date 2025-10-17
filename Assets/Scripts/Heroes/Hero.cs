@@ -58,6 +58,7 @@ namespace Scripts.Heroes
             _spawnres = new List<AttackSpawner>();
 
             DefaultAttack = _attackDictionary.GetItemByItemData(_defaultAttackItem);
+            DefaultAttack.LevelUp();
             gameObject.SetActive(true);
         }
 
@@ -73,10 +74,17 @@ namespace Scripts.Heroes
                     spawner.Initialize(_enemyPool, _attackDictionary.GetByItemData(levelUpItem.Data), levelUpItem, transform);
                     gameObject.SetActive(true);
                     _spawnres.Add(spawner);
+
+                    AttackSpawner oldSpawner = _spawnres.FirstOrDefault(spawner => spawner.LevelUpItemData.Equals(levelUpItem.OldVersionData));
+
+                    if (oldSpawner != null)
+                    {
+                        oldSpawner.Claer();
+                    }
                 }
             }
             else
-            {
+            {                
                 //sameSpawner.LevelUp();
             }
 
@@ -108,6 +116,12 @@ namespace Scripts.Heroes
         protected override void Death()
         {
             base.Death();
+
+            foreach (AttackSpawner spawner in _spawnres)
+            {
+                spawner.Claer();
+            }
+
             HeroDeath?.Invoke();
         }
     }

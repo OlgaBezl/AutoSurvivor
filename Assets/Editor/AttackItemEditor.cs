@@ -20,9 +20,11 @@ public class AttackItemEditor : Editor
     private SerializedProperty _spawnIntervalProperty;
     private SerializedProperty _canTurnProperty;
     private SerializedProperty _addProjectileWhenLevelingUpProperty;
+    private SerializedProperty _increaseWhenLevelingUpProperty;
+    private SerializedProperty _increasePercentProperty;
     private SerializedProperty _isBaseVersionProperty;
     private SerializedProperty _superVersionProperty; 
-    private SerializedProperty _tupleItemProperty;
+    private SerializedProperty _tupleItemProperty; 
 
     private void OnEnable()
     {
@@ -40,6 +42,8 @@ public class AttackItemEditor : Editor
         _spawnIntervalProperty = serializedObject.FindProperty("_spawnInterval");
         _canTurnProperty = serializedObject.FindProperty("_canTurn");
         _addProjectileWhenLevelingUpProperty = serializedObject.FindProperty("_addProjectileWhenLevelingUp");
+        _increaseWhenLevelingUpProperty = serializedObject.FindProperty("_increaseWhenLevelingUp");
+        _increasePercentProperty = serializedObject.FindProperty("_increasePercent");
         _isBaseVersionProperty = serializedObject.FindProperty("_isBaseVersion");
         _superVersionProperty = serializedObject.FindProperty("_superVersion");
         _tupleItemProperty = serializedObject.FindProperty("_tuplePassiveItem");
@@ -68,6 +72,14 @@ public class AttackItemEditor : Editor
         if (currentType == AttackType.Static)
         {
             EditorGUILayout.PropertyField(_canTurnProperty, new GUIContent("Can turn"));
+            EditorGUILayout.PropertyField(_increaseWhenLevelingUpProperty, new GUIContent("Increase when leveling up"));
+
+            bool increaseWhenLevelingUpProperty = _increaseWhenLevelingUpProperty.boolValue;
+
+            if (increaseWhenLevelingUpProperty)
+            {
+                EditorGUILayout.PropertyField(_increasePercentProperty, new GUIContent("Increase percent"));
+            }
         }
         else
         {
@@ -89,6 +101,14 @@ public class AttackItemEditor : Editor
         if (currentType == AttackType.CircleProjectile)
         {
             EditorGUILayout.PropertyField(_radiusProperty, new GUIContent("Radius"));
+
+            float lifeTime = _lifeTimeProperty.floatValue;
+            int spawnInterval = _spawnIntervalProperty.intValue;
+
+            if(lifeTime > spawnInterval)
+            {
+                throw new System.ArgumentOutOfRangeException($"{nameof(lifeTime)} cant be greater {nameof(spawnInterval)}");
+            }
         }
 
         EditorGUILayout.Space();

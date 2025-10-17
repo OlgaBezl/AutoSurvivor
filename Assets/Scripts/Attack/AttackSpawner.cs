@@ -3,6 +3,7 @@ using Scripts.Items;
 using Scripts.Items.ScriptableObjects;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Scripts.Attack
@@ -11,7 +12,7 @@ namespace Scripts.Attack
     {
         public LevelUpItemData LevelUpItemData => _attacker.AttackItemData;
 
-        private float _spawnCounter;
+        private float _timeAfterSpawn;
         private EnemyPool _enemyPool;
         private bool _canSpawn = true;
         private TouchAttacker _attacker;
@@ -24,9 +25,9 @@ namespace Scripts.Attack
             if (!_canSpawn)
                 return;
 
-            _spawnCounter++;
+            _timeAfterSpawn += Time.fixedDeltaTime;
 
-            if (_spawnCounter >= _attacker.AttackItemData.SpawnInterval)
+            if (_timeAfterSpawn >= _attacker.AttackItemData.SpawnInterval)
                 TrySpawn();
         }
 
@@ -59,6 +60,18 @@ namespace Scripts.Attack
             }
         }
 
+        public void Claer()
+        {
+            foreach (TouchAttacker attacker in _attackerPool)
+            {
+                attacker.Clear();
+                Destroy(attacker.gameObject);
+            }
+
+            _attackerPool.Clear();
+            Destroy(gameObject);
+        }
+
         public void TryTurnAttacks(Vector2 direction)
         {
             foreach (TouchAttacker attacker in _attackerPool)
@@ -69,7 +82,7 @@ namespace Scripts.Attack
 
         private void TrySpawn()
         {
-            _spawnCounter = 0;
+            _timeAfterSpawn = 0;
 
             //if (_attackerPool.Count(attack => attack.gameObject.activeSelf) >= _attacker.AttackItemData.MaxCount)
             //{
@@ -83,7 +96,6 @@ namespace Scripts.Attack
             for (int i = 0; i < _item.ProjectileCount; i++)
             {
                 Enemy nearestEnemy = i < nearestEnemies.Count ? nearestEnemies[i] : null;
-                //Vector3 direction = nearestEnemy == null ? Vector3.left : nearestEnemy.transform.position;
                 Transform target = nearestEnemy == null ? null : nearestEnemy.transform;
 
                 TouchAttacker attacker = _attackerPool.FirstOrDefault(attack => !attack.gameObject.activeSelf);
@@ -98,7 +110,7 @@ namespace Scripts.Attack
                     attacker.transform.position = _hero.position;
                 }
 
-                attacker.Initialize(target, _item, _hero);
+                attacker.Initialize(target, _item, _hero, i);
             }
         }
     }

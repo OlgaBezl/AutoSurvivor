@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <AttackItemData>k__BackingField: {fileID: 11400000, guid: 395fc9e7c5480e64c9ef6cec61e8da51, type: 2}
+  _attackSprite: {fileID: 2073338802324637135}
 --- !u!1 &9163518538929578435
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,6 +94,7 @@ GameObject:
   - component: {fileID: 1702115025128313360}
   - component: {fileID: 8859175612640542572}
   - component: {fileID: 5533587294883294088}
+  - component: {fileID: 2073338802324637135}
   m_Layer: 0
   m_Name: sprite
   m_TagString: Untagged
@@ -188,3 +190,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2073338802324637135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9163518538929578435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e50b7670e27ec54b9a3258daa114783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
