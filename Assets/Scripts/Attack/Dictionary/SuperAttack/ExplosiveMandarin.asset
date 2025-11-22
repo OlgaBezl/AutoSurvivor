@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 845fde07cf85b854c94d5d841f0fdd99, type: 3}
-  m_Name: SuperMandarin
+  m_Name: ExplosiveMandarin
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 0}
-  Name: 
-  _type: 0
-  _attack: 0
-  _speed: 0
-  _lifeTime: 0
-  _radius: 0
-  _radiusVariation: 0
-  _height: 0
-  _heightVariation: 0
-  _distance: 0
-  _spawnInterval: 0
+  Sprite: {fileID: -1758780940, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
+  Name: Explosive mandarin
+  _type: 4
+  _attack: 10
+  _speed: 8
+  _lifeTime: 2
+  _radius: 10
+  _radiusVariation: 2
+  _height: 4
+  _heightVariation: 1
+  _distance: 10
+  _spawnInterval: 3
   _maxCount: 0
   _canTurn: 0
-  _addProjectileWhenLevelingUp: 0
+  _addProjectileWhenLevelingUp: 1
   _increaseWhenLevelingUp: 0
   _increasePercent: 0
   _isBaseVersion: 0
-  _superVersion: {fileID: 0}
+  _superVersion: {fileID: 11400000, guid: 5a8d7be4df6b0b3439a499e3df687c47, type: 2}
   _tuplePassiveItem: {fileID: 0}

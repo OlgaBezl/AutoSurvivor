@@ -27,6 +27,8 @@ MonoBehaviour:
   _maxCount: 0
   _canTurn: 0
   _addProjectileWhenLevelingUp: 0
+  _increaseWhenLevelingUp: 0
+  _increasePercent: 0
   _isBaseVersion: 1
-  _superVersion: {fileID: 0}
+  _superVersion: {fileID: 11400000, guid: 922a45e196c39a74f81df904843dfebc, type: 2}
   _tuplePassiveItem: {fileID: 11400000, guid: c9b80780fd635c140928866378cad00a, type: 2}

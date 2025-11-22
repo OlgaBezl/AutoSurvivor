@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b678a728e0f50444db6f2df1edecdeac, type: 3}
-  m_Name: Heart
+  m_Name: Speed
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -1290855366162983238, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
-  <Name>k__BackingField: Heart
-  <IsAttack>k__BackingField: 0
+  Sprite: {fileID: -214691251, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
+  Name: Speed

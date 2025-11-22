@@ -30,5 +30,5 @@ MonoBehaviour:
   _increaseWhenLevelingUp: 0
   _increasePercent: 0
   _isBaseVersion: 1
-  _superVersion: {fileID: 0}
-  _tuplePassiveItem: {fileID: 0}
+  _superVersion: {fileID: 11400000, guid: 5a8d7be4df6b0b3439a499e3df687c47, type: 2}
+  _tuplePassiveItem: {fileID: 11400000, guid: 594cb1226b1f76b48b492ce09737511b, type: 2}

@@ -26,7 +26,7 @@ namespace Scripts.Items.ScriptableObjects
             if (string.IsNullOrEmpty(_uid))
             {
                 _uid = GUID.Generate().ToString();
-                EditorUtility.SetDirty(this);
+                //EditorUtility.SetDirty(this);
             }
         }
     }

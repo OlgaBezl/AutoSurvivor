@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b678a728e0f50444db6f2df1edecdeac, type: 3}
-  m_Name: Increase
+  m_Name: Damage
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: -4297203505398261690, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
-  <Name>k__BackingField: Increase
-  <IsAttack>k__BackingField: 0
+  Sprite: {fileID: 3876512272233767631, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
+  Name: Damage

@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b678a728e0f50444db6f2df1edecdeac, type: 3}
   m_Name: Multy
   m_EditorClassIdentifier: 
-  <Sprite>k__BackingField: {fileID: 3357360333254942192, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
-  <Name>k__BackingField: Multy
-  <IsAttack>k__BackingField: 0
+  Sprite: {fileID: 3357360333254942192, guid: 011e0c96a988ba3448e9a8b48241f0c7, type: 3}
+  Name: Multy
